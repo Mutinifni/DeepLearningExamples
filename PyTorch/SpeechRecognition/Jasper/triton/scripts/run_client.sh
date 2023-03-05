@@ -22,7 +22,7 @@ FILE=${3} # json manifest file, OR single wav file
 
 JASPER_CONTAINER_TAG=${JASPER_CONTAINER_TAG:-jasper:triton}
 
-if [ "$#" -ge 1 ] && [ "${FILE: -4}" == ".wav" ]; then 
+if [ "$#" -ge 1 ] && [ "${FILE: -4}" == ".wav" ]; then
   CMD="python /jasper/triton/jasper-client.py --data_dir /data --audio_filename ${FILE} --model_platform ${MODEL_TYPE}"
   ARGS=""
   ARGS="$ARGS -v $DATA_DIR:/data"
@@ -38,7 +38,8 @@ fi
 echo "========== STARTING ${JASPER_CONTAINER_TAG} =========="
 
 set -x
-nvidia-docker run --rm -it \
+docker run --rm -it \
+   --gpus all \
    --net=host \
    --shm-size=1g \
    --ulimit memlock=-1 \

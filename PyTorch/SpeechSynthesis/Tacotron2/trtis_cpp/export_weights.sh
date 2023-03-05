@@ -68,8 +68,9 @@ pushd "${DLE_DIR}"
 docker build . -f "${DOCKER_FILE}" -t "${IMAGE_NAME}" || die "Failed to build container"
 
 # export taoctron2
-nvidia-docker run \
+docker run \
               --rm \
+              --gpus all \
               -e "NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}" \
               --name "${CONTAINER_NAME}" \
               -v "${TACOTRON2_DIR}:/checkpoints" \
@@ -77,9 +78,10 @@ nvidia-docker run \
               "${IMAGE_NAME}" "./scripts/tacotron2_to_json.py \"/checkpoints/${TACOTRON2_NAME}\" /models/tacotron2.json" || \
               die_and_remove_image "Failed to export tacotron2."
 
-# export waveglow 
-nvidia-docker run \
+# export waveglow
+docker run \
               --rm \
+              --gpus all \
               -e "NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}" \
               --name "${CONTAINER_NAME}" \
               -v "${WAVEGLOW_DIR}:/checkpoints" \
@@ -89,8 +91,9 @@ nvidia-docker run \
               die_and_remove_image "Failed to export waveglow."
 
 # export denoiser
-nvidia-docker run \
+docker run \
               --rm \
+              --gpus all \
               -e "NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES}" \
               --name "${CONTAINER_NAME}" \
               -v "${WAVEGLOW_DIR}:/checkpoints" \
