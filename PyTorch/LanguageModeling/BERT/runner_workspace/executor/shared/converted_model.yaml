@@ -1,0 +1,32 @@
+inputs:
+  input__0:
+    name: input__0
+    shape:
+    - -1
+    - 384
+    dtype: int32
+  input__1:
+    name: input__1
+    shape:
+    - -1
+    - 384
+    dtype: int32
+  input__2:
+    name: input__2
+    shape:
+    - -1
+    - 384
+    dtype: int32
+outputs:
+  output__0:
+    name: output__0
+    shape:
+    - -1
+    - 384
+    dtype: float16
+  output__1:
+    name: output__1
+    shape:
+    - -1
+    - 384
+    dtype: float16

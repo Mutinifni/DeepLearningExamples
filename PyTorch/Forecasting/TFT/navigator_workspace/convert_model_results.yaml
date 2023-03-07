@@ -1,0 +1,90 @@
+- comparator_config: null
+  conversion_config:
+    onnx_opset: null
+    target_format: torchscript
+    tensorrt_explicit_precision: false
+    tensorrt_precision: null
+    tensorrt_precision_mode: hierarchy
+    tensorrt_sparse_weights: false
+    tensorrt_strict_types: false
+  dataset_profile: null
+  framework_docker_image: null
+  model_signature_config: null
+  output_model:
+    format: torchscript
+    name: TFT
+    num_required_gpus: null
+    path: /home/cc/DLEx/PyTorch/Forecasting/TFT/runner_workspace/executor/shared/exported_model.pt
+    properties: {}
+    signature:
+      inputs:
+        id__7:
+          dtype: int64
+          name: id__7
+          shape:
+          - -1
+          - 192
+          - 1
+        k_cat__2:
+          dtype: float32
+          name: k_cat__2
+          shape:
+          - -1
+          - 1
+        k_cont__3:
+          dtype: float32
+          name: k_cont__3
+          shape:
+          - -1
+          - 192
+          - 3
+        o_cat__4:
+          dtype: float32
+          name: o_cat__4
+          shape:
+          - -1
+          - 1
+        o_cont__5:
+          dtype: float32
+          name: o_cont__5
+          shape:
+          - -1
+          - 1
+        s_cat__0:
+          dtype: int64
+          name: s_cat__0
+          shape:
+          - -1
+          - 192
+          - 1
+        s_cont__1:
+          dtype: float32
+          name: s_cont__1
+          shape:
+          - -1
+          - 1
+        target__6:
+          dtype: float32
+          name: target__6
+          shape:
+          - -1
+          - 192
+          - 1
+      outputs:
+        target__0:
+          dtype: float32
+          name: target__0
+          shape:
+          - -1
+          - 24
+          - 3
+  source_model_config:
+    model_format: null
+    model_name: TFT
+    model_path: /home/cc/DLEx/PyTorch/Forecasting/TFT/runner_workspace/executor/shared/exported_model.pt
+    model_version: '1'
+  status:
+    log_path: null
+    message: Source model
+    state: succeeded
+  tensorrt_common_config: null

@@ -1,0 +1,71 @@
+I0304 04:46:18.374821 23 libtorch.cc:1206] TRITONBACKEND_Initialize: pytorch
+I0304 04:46:18.374881 23 libtorch.cc:1216] Triton TRITONBACKEND API version: 1.7
+I0304 04:46:18.374884 23 libtorch.cc:1222] 'pytorch' TRITONBACKEND API version: 1.7
+2023-03-04 04:46:18.646539: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+I0304 04:46:18.682904 23 tensorflow.cc:2170] TRITONBACKEND_Initialize: tensorflow
+I0304 04:46:18.682950 23 tensorflow.cc:2180] Triton TRITONBACKEND API version: 1.7
+I0304 04:46:18.682962 23 tensorflow.cc:2186] 'tensorflow' TRITONBACKEND API version: 1.7
+I0304 04:46:18.682972 23 tensorflow.cc:2210] backend configuration:
+{}
+I0304 04:46:18.706248 23 onnxruntime.cc:2210] TRITONBACKEND_Initialize: onnxruntime
+I0304 04:46:18.706260 23 onnxruntime.cc:2220] Triton TRITONBACKEND API version: 1.7
+I0304 04:46:18.706265 23 onnxruntime.cc:2226] 'onnxruntime' TRITONBACKEND API version: 1.7
+I0304 04:46:18.706268 23 onnxruntime.cc:2256] backend configuration:
+{}
+I0304 04:46:18.723750 23 openvino.cc:1193] TRITONBACKEND_Initialize: openvino
+I0304 04:46:18.723761 23 openvino.cc:1203] Triton TRITONBACKEND API version: 1.7
+I0304 04:46:18.723765 23 openvino.cc:1209] 'openvino' TRITONBACKEND API version: 1.7
+I0304 04:46:18.931838 23 pinned_memory_manager.cc:240] Pinned memory pool is created at '0x7f1b48000000' with size 268435456
+I0304 04:46:18.933649 23 cuda_memory_manager.cc:105] CUDA memory pool is created on device 0 with size 67108864
+I0304 04:46:18.935552 23 server.cc:519] 
++------------------+------+
+| Repository Agent | Path |
++------------------+------+
++------------------+------+
+
+I0304 04:46:18.935585 23 server.cc:546] 
++-------------+-----------------------------------------------------------------+--------+
+| Backend     | Path                                                            | Config |
++-------------+-----------------------------------------------------------------+--------+
+| pytorch     | /opt/tritonserver/backends/pytorch/libtriton_pytorch.so         | {}     |
+| tensorflow  | /opt/tritonserver/backends/tensorflow1/libtriton_tensorflow1.so | {}     |
+| onnxruntime | /opt/tritonserver/backends/onnxruntime/libtriton_onnxruntime.so | {}     |
+| openvino    | /opt/tritonserver/backends/openvino/libtriton_openvino.so       | {}     |
++-------------+-----------------------------------------------------------------+--------+
+
+I0304 04:46:18.935595 23 server.cc:589] 
++-------+---------+--------+
+| Model | Version | Status |
++-------+---------+--------+
++-------+---------+--------+
+
+I0304 04:46:18.935691 23 tritonserver.cc:1865] 
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option                           | Value                                                                                                                                                                                  |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_id                        | triton                                                                                                                                                                                 |
+| server_version                   | 2.17.0                                                                                                                                                                                 |
+| server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data statistics |
+| model_repository_path[0]         | /mnt/triton-models                                                                                                                                                                     |
+| model_control_mode               | MODE_EXPLICIT                                                                                                                                                                          |
+| strict_model_config              | 0                                                                                                                                                                                      |
+| rate_limit                       | OFF                                                                                                                                                                                    |
+| pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                              |
+| cuda_memory_pool_byte_size{0}    | 67108864                                                                                                                                                                               |
+| response_cache_byte_size         | 0                                                                                                                                                                                      |
+| min_supported_compute_capability | 6.0                                                                                                                                                                                    |
+| strict_readiness                 | 1                                                                                                                                                                                      |
+| exit_timeout                     | 30                                                                                                                                                                                     |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0304 04:46:18.937499 23 grpc_server.cc:4190] Started GRPCInferenceService at 0.0.0.0:8001
+I0304 04:46:18.937727 23 http_server.cc:2857] Started HTTPService at 0.0.0.0:8000
+I0304 04:46:25.787998 23 model_repository_manager.cc:994] loading: TFT:1
+I0304 04:46:25.888388 23 libtorch.cc:1255] TRITONBACKEND_ModelInitialize: TFT (version 1)
+W0304 04:46:25.889223 23 libtorch.cc:222] skipping model configuration auto-complete for 'TFT': not supported for pytorch backend
+I0304 04:46:25.889445 23 libtorch.cc:251] Optimized execution is enabled for model instance 'TFT'
+I0304 04:46:25.889450 23 libtorch.cc:269] Inference Mode is disabled for model instance 'TFT'
+I0304 04:46:25.889453 23 libtorch.cc:344] NvFuser is not specified for model instance 'TFT'
+I0304 04:46:25.890361 23 libtorch.cc:1296] TRITONBACKEND_ModelInstanceInitialize: TFT_0_0 (device 0)
+I0304 04:46:27.592674 23 libtorch.cc:1296] TRITONBACKEND_ModelInstanceInitialize: TFT_0_1 (device 0)
+I0304 04:46:27.662306 23 model_repository_manager.cc:1149] successfully loaded 'TFT' version 1

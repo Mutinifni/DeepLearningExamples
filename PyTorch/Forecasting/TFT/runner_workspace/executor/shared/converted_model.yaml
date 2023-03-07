@@ -1,0 +1,61 @@
+inputs:
+  s_cat__0:
+    name: s_cat__0
+    shape:
+    - -1
+    - 192
+    - 1
+    dtype: int64
+  s_cont__1:
+    name: s_cont__1
+    shape:
+    - -1
+    - 1
+    dtype: float32
+  k_cat__2:
+    name: k_cat__2
+    shape:
+    - -1
+    - 1
+    dtype: float32
+  k_cont__3:
+    name: k_cont__3
+    shape:
+    - -1
+    - 192
+    - 3
+    dtype: float32
+  o_cat__4:
+    name: o_cat__4
+    shape:
+    - -1
+    - 1
+    dtype: float32
+  o_cont__5:
+    name: o_cont__5
+    shape:
+    - -1
+    - 1
+    dtype: float32
+  target__6:
+    name: target__6
+    shape:
+    - -1
+    - 192
+    - 1
+    dtype: float32
+  id__7:
+    name: id__7
+    shape:
+    - -1
+    - 192
+    - 1
+    dtype: int64
+outputs:
+  target__0:
+    name: target__0
+    shape:
+    - -1
+    - 24
+    - 3
+    dtype: float32

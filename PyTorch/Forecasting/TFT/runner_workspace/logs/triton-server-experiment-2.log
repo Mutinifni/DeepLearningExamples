@@ -1,0 +1,94 @@
+I0304 04:19:21.529789 22 libtorch.cc:1206] TRITONBACKEND_Initialize: pytorch
+I0304 04:19:21.529847 22 libtorch.cc:1216] Triton TRITONBACKEND API version: 1.7
+I0304 04:19:21.529852 22 libtorch.cc:1222] 'pytorch' TRITONBACKEND API version: 1.7
+2023-03-04 04:19:21.798120: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+I0304 04:19:21.833486 22 tensorflow.cc:2170] TRITONBACKEND_Initialize: tensorflow
+I0304 04:19:21.833541 22 tensorflow.cc:2180] Triton TRITONBACKEND API version: 1.7
+I0304 04:19:21.833553 22 tensorflow.cc:2186] 'tensorflow' TRITONBACKEND API version: 1.7
+I0304 04:19:21.833563 22 tensorflow.cc:2210] backend configuration:
+{}
+I0304 04:19:21.837779 22 onnxruntime.cc:2210] TRITONBACKEND_Initialize: onnxruntime
+I0304 04:19:21.837793 22 onnxruntime.cc:2220] Triton TRITONBACKEND API version: 1.7
+I0304 04:19:21.837797 22 onnxruntime.cc:2226] 'onnxruntime' TRITONBACKEND API version: 1.7
+I0304 04:19:21.837800 22 onnxruntime.cc:2256] backend configuration:
+{}
+I0304 04:19:21.875074 22 openvino.cc:1193] TRITONBACKEND_Initialize: openvino
+I0304 04:19:21.875087 22 openvino.cc:1203] Triton TRITONBACKEND API version: 1.7
+I0304 04:19:21.875090 22 openvino.cc:1209] 'openvino' TRITONBACKEND API version: 1.7
+I0304 04:19:22.083289 22 pinned_memory_manager.cc:240] Pinned memory pool is created at '0x7f07e8000000' with size 268435456
+I0304 04:19:22.085115 22 cuda_memory_manager.cc:105] CUDA memory pool is created on device 0 with size 67108864
+I0304 04:19:22.087029 22 server.cc:519] 
++------------------+------+
+| Repository Agent | Path |
++------------------+------+
++------------------+------+
+
+I0304 04:19:22.087061 22 server.cc:546] 
++-------------+-----------------------------------------------------------------+--------+
+| Backend     | Path                                                            | Config |
++-------------+-----------------------------------------------------------------+--------+
+| pytorch     | /opt/tritonserver/backends/pytorch/libtriton_pytorch.so         | {}     |
+| tensorflow  | /opt/tritonserver/backends/tensorflow1/libtriton_tensorflow1.so | {}     |
+| onnxruntime | /opt/tritonserver/backends/onnxruntime/libtriton_onnxruntime.so | {}     |
+| openvino    | /opt/tritonserver/backends/openvino/libtriton_openvino.so       | {}     |
++-------------+-----------------------------------------------------------------+--------+
+
+I0304 04:19:22.087071 22 server.cc:589] 
++-------+---------+--------+
+| Model | Version | Status |
++-------+---------+--------+
++-------+---------+--------+
+
+I0304 04:19:22.087161 22 tritonserver.cc:1865] 
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option                           | Value                                                                                                                                                                                  |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| server_id                        | triton                                                                                                                                                                                 |
+| server_version                   | 2.17.0                                                                                                                                                                                 |
+| server_extensions                | classification sequence model_repository model_repository(unload_dependents) schedule_policy model_configuration system_shared_memory cuda_shared_memory binary_tensor_data statistics |
+| model_repository_path[0]         | /mnt/triton-models                                                                                                                                                                     |
+| model_control_mode               | MODE_EXPLICIT                                                                                                                                                                          |
+| strict_model_config              | 0                                                                                                                                                                                      |
+| rate_limit                       | OFF                                                                                                                                                                                    |
+| pinned_memory_pool_byte_size     | 268435456                                                                                                                                                                              |
+| cuda_memory_pool_byte_size{0}    | 67108864                                                                                                                                                                               |
+| response_cache_byte_size         | 0                                                                                                                                                                                      |
+| min_supported_compute_capability | 6.0                                                                                                                                                                                    |
+| strict_readiness                 | 1                                                                                                                                                                                      |
+| exit_timeout                     | 30                                                                                                                                                                                     |
++----------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+I0304 04:19:22.089084 22 grpc_server.cc:4190] Started GRPCInferenceService at 0.0.0.0:8001
+I0304 04:19:22.089319 22 http_server.cc:2857] Started HTTPService at 0.0.0.0:8000
+I0304 04:33:12.893336 22 model_repository_manager.cc:994] loading: TFT:1
+I0304 04:33:12.994555 22 tensorrt.cc:5104] TRITONBACKEND_Initialize: tensorrt
+I0304 04:33:12.994567 22 tensorrt.cc:5114] Triton TRITONBACKEND API version: 1.7
+I0304 04:33:12.994574 22 tensorrt.cc:5120] 'tensorrt' TRITONBACKEND API version: 1.7
+I0304 04:33:12.994641 22 tensorrt.cc:5163] backend configuration:
+{}
+I0304 04:33:12.994656 22 tensorrt.cc:5215] TRITONBACKEND_ModelInitialize: TFT (version 1)
+I0304 04:33:13.390533 22 logging.cc:49] [MemUsageChange] Init CUDA: CPU +709, GPU +0, now: CPU 780, GPU 756 (MiB)
+I0304 04:33:13.418927 22 logging.cc:49] Loaded engine size: 28 MiB
+I0304 04:33:14.142374 22 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +1240, GPU +350, now: CPU 2099, GPU 1114 (MiB)
+I0304 04:33:14.269164 22 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +252, GPU +60, now: CPU 2351, GPU 1174 (MiB)
+I0304 04:33:14.269925 22 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6, now: CPU 0, GPU 6 (MiB)
+I0304 04:33:14.273767 22 tensorrt.cc:5264] TRITONBACKEND_ModelInstanceInitialize: TFT_0_0 (GPU device 0)
+I0304 04:33:14.313638 22 logging.cc:49] [MemUsageChange] Init CUDA: CPU +0, GPU +0, now: CPU 2274, GPU 1148 (MiB)
+I0304 04:33:14.341669 22 logging.cc:49] Loaded engine size: 28 MiB
+I0304 04:33:14.356413 22 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +10, now: CPU 2353, GPU 1166 (MiB)
+I0304 04:33:14.358382 22 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 2353, GPU 1174 (MiB)
+I0304 04:33:14.359038 22 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +6, now: CPU 0, GPU 6 (MiB)
+I0304 04:33:14.364969 22 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +10, now: CPU 2296, GPU 1166 (MiB)
+I0304 04:33:14.366781 22 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 2296, GPU 1174 (MiB)
+I0304 04:33:16.816634 22 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1192, now: CPU 0, GPU 1198 (MiB)
+I0304 04:33:16.916455 22 tensorrt.cc:1404] Created instance TFT_0_0 on GPU 0 with stream priority 0 and optimization profile default[0];
+I0304 04:33:16.916888 22 tensorrt.cc:5264] TRITONBACKEND_ModelInstanceInitialize: TFT_0_1 (GPU device 0)
+I0304 04:33:16.946651 22 logging.cc:49] Loaded engine size: 28 MiB
+I0304 04:33:16.965317 22 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 2555, GPU 3028 (MiB)
+I0304 04:33:16.966662 22 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +10, now: CPU 2555, GPU 3038 (MiB)
+I0304 04:33:16.966994 22 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in engine deserialization: CPU +0, GPU +7, now: CPU 0, GPU 1205 (MiB)
+I0304 04:33:16.970721 22 logging.cc:49] [MemUsageChange] Init cuBLAS/cuBLASLt: CPU +0, GPU +8, now: CPU 2498, GPU 3030 (MiB)
+I0304 04:33:16.971860 22 logging.cc:49] [MemUsageChange] Init cuDNN: CPU +0, GPU +8, now: CPU 2498, GPU 3038 (MiB)
+I0304 04:33:19.400732 22 logging.cc:49] [MemUsageChange] TensorRT-managed allocation in IExecutionContext creation: CPU +0, GPU +1192, now: CPU 0, GPU 2397 (MiB)
+I0304 04:33:19.501006 22 tensorrt.cc:1404] Created instance TFT_0_1 on GPU 0 with stream priority 0 and optimization profile default[0];
+I0304 04:33:19.501453 22 model_repository_manager.cc:1149] successfully loaded 'TFT' version 1

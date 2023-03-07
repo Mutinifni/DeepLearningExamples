@@ -1,0 +1,26 @@
+- instances_config:
+    engine_count_per_device:
+      gpu: 1
+  model_config:
+    model_format: torchscript
+    model_name: BERT
+    model_path: /home/cc/DLEx/PyTorch/LanguageModeling/BERT/runner_workspace/executor/shared/converted_model
+    model_version: '1'
+  model_dir_in_model_store: /home/cc/DLEx/PyTorch/LanguageModeling/BERT/runner_workspace/executor/triton_models/BERT
+  model_version: '1'
+  optimization_config:
+    backend_accelerator: none
+    tensorrt_capture_cuda_graph: false
+    tensorrt_precision: fp16
+  scheduler_config:
+    max_batch_size: 16
+    max_queue_delay_us: 1
+    preferred_batch_sizes:
+    - 8
+    - 16
+  status:
+    log_path: null
+    message: Model configured and loaded correctly
+    state: succeeded
+  tensorrt_common_config:
+    tensorrt_max_workspace_size: null

@@ -1,0 +1,30 @@
+Batch,Concurrency,Inferences/Second,Client Send,Network+Server Send/Recv,Server Queue,Server Compute Input,Server Compute Infer,Server Compute Output,Client Recv,p50 latency,p90 latency,p95 latency,p99 latency,avg latency
+1,1,270.5,14,91,12,47,3518,6,0,3690,3711,3718,3730,3688
+2,1,487.333,14,91,13,48,3684,246,0,4104,4130,4134,4142,4096
+4,1,958.667,14,92,14,50,3737,255,0,4152,4166,4174,4657,4162
+8,1,1898.03,14,91,13,53,3770,262,0,4204,4220,4224,4232,4203
+16,1,3658.67,14,92,44,61,3805,348,0,4321,4535,4549,4586,4364
+32,1,6666.67,13,93,104,73,4083,425,0,4852,4891,4901,4943,4791
+64,1,10773.3,14,94,109,86,4139,1484,0,5958,5978,5986,6028,5926
+128,1,15433.7,14,95,151,112,4145,3765,0,8289,8320,8329,8360,8282
+256,1,19748.6,37,217,187,167,4164,8163,0,12932,13042,13067,13113,12935
+512,1,22782.1,35,157,200,271,4184,17601,0,22440,22648,22707,22783,22448
+1024,1,24672.3,35,307,150,469,4322,36172,0,41424,41821,41955,42133,41455
+Batch,Concurrency,Inferences/Second,Client Send,Network+Server Send/Recv,Server Queue,Server Compute Input,Server Compute Infer,Server Compute Output,Client Recv,p50 latency,p90 latency,p95 latency,p99 latency,avg latency
+1,1,366.5,43,191,14,55,2366,36,0,2716,2775,2781,2794,2705
+2,1,664,43,196,14,57,2625,40,0,2976,3049,3058,3065,2975
+4,1,1154,44,253,31,116,2926,41,0,3439,4034,4088,4145,3411
+8,1,2308,41,283,29,115,2866,42,0,3420,3985,4066,4144,3376
+16,1,4688,38,308,25,111,2755,30,0,3010,3869,3929,4037,3267
+32,1,7829.33,55,418,24,107,3087,22,0,3586,4285,4371,4470,3713
+64,1,11050.7,37,738,90,116,4191,25,1,5255,5492,5626,5845,5198
+128,1,14233.6,56,1075,92,134,6802,28,4,8220,8492,8577,8742,8191
+256,1,17469.8,99,1605,112,189,11488,32,7,13532,13989,14125,14321,13532
+512,1,19453.2,584,2073,77,300,21255,42,26,24485,25158,25273,25535,24357
+1024,1,20519.3,1499,3042,130,477,41016,60,92,45757,47718,47820,47989,46316
+Batch,Concurrency,Inferences/Second,Client Send,Network+Server Send/Recv,Server Queue,Server Compute Input,Server Compute Infer,Server Compute Output,Client Recv,p50 latency,p90 latency,p95 latency,p99 latency,avg latency
+1,1,266.5,14,93,13,48,3566,6,0,3728,3752,3759,4365,3740
+Batch,Concurrency,Inferences/Second,Client Send,Network+Server Send/Recv,Server Queue,Server Compute Input,Server Compute Infer,Server Compute Output,Client Recv,p50 latency,p90 latency,p95 latency,p99 latency,avg latency
+1,1,267.5,14,91,13,48,3555,6,0,3729,3751,3759,3773,3727
+Batch,Concurrency,Inferences/Second,Client Send,Network+Server Send/Recv,Server Queue,Server Compute Input,Server Compute Infer,Server Compute Output,Client Recv,p50 latency,p90 latency,p95 latency,p99 latency,avg latency
+1,1,267.5,14,92,13,48,3555,6,0,3728,3748,3755,3766,3728

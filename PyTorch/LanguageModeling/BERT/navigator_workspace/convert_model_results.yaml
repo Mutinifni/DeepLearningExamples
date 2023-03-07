@@ -1,0 +1,72 @@
+- comparator_config:
+    atol:
+      ? ''
+      : 2.0
+      output__0: 5.0
+      output__1: 5.0
+    max_batch_size: 8
+    rtol:
+      ? ''
+      : 1.0
+      output__0: 5.0
+      output__1: 5.0
+  conversion_config:
+    onnx_opset: 13
+    target_format: trt
+    tensorrt_explicit_precision: false
+    tensorrt_precision: fp16
+    tensorrt_precision_mode: hierarchy
+    tensorrt_sparse_weights: false
+    tensorrt_strict_types: false
+  dataset_profile:
+    dtypes: null
+    max_shapes:
+      input__0:
+      - 8
+      - 384
+      input__1:
+      - 8
+      - 384
+      input__2:
+      - 8
+      - 384
+    min_shapes:
+      input__0:
+      - 8
+      - 384
+      input__1:
+      - 8
+      - 384
+      input__2:
+      - 8
+      - 384
+    opt_shapes:
+      input__0:
+      - 8
+      - 384
+      input__1:
+      - 8
+      - 384
+      input__2:
+      - 8
+      - 384
+    value_ranges: null
+  framework_docker_image: null
+  model_signature_config: null
+  output_model:
+    format: trt
+    name: BERT.polygraphyonnx2trt_fp16_mh
+    num_required_gpus: null
+    path: /home/cc/DLEx/PyTorch/LanguageModeling/BERT/navigator_workspace/converted/exported_model-polygraphyonnx2trt_fp16_mh.plan
+    properties: {}
+    signature: null
+  source_model_config:
+    model_format: null
+    model_name: BERT
+    model_path: /home/cc/DLEx/PyTorch/LanguageModeling/BERT/runner_workspace/executor/shared/exported_model.onnx
+    model_version: '1'
+  status:
+    log_path: /home/cc/DLEx/PyTorch/LanguageModeling/BERT/navigator_workspace/converted/exported_model-polygraphyonnx2trt_fp16_mh.plan.log
+    message: ONNX converted to TensorRT
+    state: succeeded
+  tensorrt_common_config: null

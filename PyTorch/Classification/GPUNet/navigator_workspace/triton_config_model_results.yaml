@@ -1,0 +1,27 @@
+- batching_config:
+    batching: dynamic
+    max_batch_size: 64
+  dynamic_batching_config:
+    max_queue_delay_us: 0
+    preferred_batch_sizes:
+    - 64
+  instances_config:
+    engine_count_per_device:
+      gpu: 2
+  model_config:
+    model_format: onnx
+    model_name: GPUnet
+    model_path: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+    model_version: '1'
+  model_dir_in_model_store: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models/GPUnet
+  model_version: '1'
+  optimization_config:
+    backend_accelerator: trt
+    tensorrt_capture_cuda_graph: true
+    tensorrt_precision: fp16
+  status:
+    log_path: null
+    message: Model configured and loaded correctly
+    state: succeeded
+  tensorrt_common_config:
+    tensorrt_max_workspace_size: 10000000000

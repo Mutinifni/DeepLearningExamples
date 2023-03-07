@@ -1,0 +1,2001 @@
+2023-03-04 14:44:06,724 INFO runner Preparing Triton container image
+2023-03-04 14:44:06,724 INFO runner Using official Triton container image: nvcr.io/nvidia/tritonserver:21.12-py3.
+2023-03-04 14:44:06,725 INFO runner Initialize task
+2023-03-04 14:44:14,425 INFO runner Preparing directories
+2023-03-04 14:44:14,425 INFO runner Directory results created.
+2023-03-04 14:44:14,426 INFO runner Directory /var/logs created.
+2023-03-04 14:44:14,426 INFO runner Directory checkpoints created.
+2023-03-04 14:44:14,426 INFO runner Clean previous run artifacts directories
+2023-03-04 14:44:14,426 INFO runner Location /var/logs cleaned.
+2023-03-04 14:44:14,426 INFO runner Location results cleaned.
+2023-03-04 14:44:14,426 INFO runner Downloading checkpoints
+2023-03-04 14:44:14,426 INFO runner Downloading checkpoint from https://api.ngc.nvidia.com/v2/models/nvidia/dle/gpunet_2_pyt_ckpt/versions/21.12.0_amp/zip
+2023-03-04 14:44:25,248 INFO runner Checkpoint saved in /tmp/tmpxw_o_xgy
+2023-03-04 14:44:25,248 INFO runner Moving checkpoint to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints
+2023-03-04 14:44:25,493 INFO runner done
+2023-03-04 14:44:25,494 INFO runner Creating directory for checkpoint: 1.75ms
+2023-03-04 14:44:25,494 INFO runner Unpacking checkpoint files /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms
+2023-03-04 14:44:27,983 INFO runner done
+2023-03-04 14:44:27,983 INFO runner Removing zip file: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/tmpxw_o_xgy
+2023-03-04 14:44:28,029 INFO runner done
+2023-03-04 14:44:28,029 INFO runner [32m================ Creating Artifacts Directories Started ================[39m
+2023-03-04 14:44:28,029 INFO runner Directory libs created.
+2023-03-04 14:44:28,029 INFO runner Directory shared created.
+2023-03-04 14:44:28,029 INFO runner Directory scripts created.
+2023-03-04 14:44:28,029 INFO runner Directory triton_models created.
+2023-03-04 14:44:28,029 INFO runner [32m================ Creating Artifacts Directories Finished ================[39m
+2023-03-04 14:44:28,029 INFO runner Total experiments to verify: 1
+2023-03-04 14:44:28,029 INFO runner [36m================ Experiment: 1/1 Started ================[39m
+2023-03-04 14:44:28,030 INFO runner Experiment details
+2023-03-04 14:44:28,030 INFO runner {
+    "MODEL_NAME": "GPUnet",
+    "ENSEMBLE_MODEL_NAME": null,
+    "FRAMEWORK": "PyTorch",
+    "SHARED_DIR": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared",
+    "MODEL_REPOSITORY_PATH": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models",
+    "TRITON_SERVER_URL": "localhost",
+    "TRITON_LOAD_MODEL_METHOD": "explicit",
+    "PERFORMANCE_TOOL": "model_analyzer",
+    "MODEL_BATCHING": "dynamic",
+    "MEASUREMENT_OFFLINE_BATCH_SIZES": "8 16 24 32 40 48 56 64",
+    "MEASUREMENT_OFFLINE_CONCURRENCY": "1",
+    "MEASUREMENT_ONLINE_BATCH_SIZES": "2",
+    "MEASUREMENT_ONLINE_CONCURRENCY": "4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128",
+    "MEASUREMENT_MIN_SHAPES_BATCH": 2,
+    "MEASUREMENT_MAX_SHAPES_BATCH": 64,
+    "MEASUREMENT_OPT_SHAPES_BATCH": 64,
+    "CHECKPOINT_DIR": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms",
+    "DATASETS_DIR": "datasets",
+    "BACKEND_ACCELERATOR": "trt",
+    "CHECKPOINT": "1.75ms",
+    "DEVICE_KIND": "gpu",
+    "EXPORT_FORMAT": "onnx",
+    "EXPORT_PRECISION": "fp16",
+    "FORMAT": "onnx",
+    "MAX_BATCH_SIZE": "64",
+    "NUMBER_OF_MODEL_INSTANCES": "2",
+    "PRECISION": "fp16",
+    "TENSORRT_CAPTURE_CUDA_GRAPH": "0",
+    "TORCH_JIT": "none"
+}
+2023-03-04 14:44:28,030 INFO runner [32m[Experiment: 1/1] ================ Cleanup Experiment Data Started ================[39m
+2023-03-04 14:44:28,030 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared cleaned.
+2023-03-04 14:44:28,030 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/scripts cleaned.
+2023-03-04 14:44:28,030 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models cleaned.
+2023-03-04 14:44:28,030 INFO runner [32m[Experiment: 1/1] ================ Cleanup Experiment Data Finished ================[39m
+2023-03-04 14:44:28,030 INFO runner Running Triton Servers:
+2023-03-04 14:44:28,048 INFO runner Triton environment: {
+    "MODEL_REPOSITORY_PATH": "/mnt/triton-models",
+    "LIBRARIES_PATH": "/mnt/libs",
+    "TRITON_LOAD_MODEL_METHOD": "explicit",
+    "ORT_TENSORRT_FP16_ENABLE": 1
+}
+2023-03-04 14:44:28,048 INFO runner Starting Triton container triton-server.
+2023-03-04 14:44:28,418 INFO runner Triton command:
+2023-03-04 14:44:28,419 INFO runner    bash -c "tritonserver --model-store=/mnt/triton-models --model-control-mode=explicit --strict-model-config=false --allow-metrics=false --allow-gpu-metrics=false"
+2023-03-04 14:44:28,419 INFO runner Starting Triton Server triton-server.
+2023-03-04 14:44:28,425 INFO runner [32m[Experiment: 1/1] ================ Stage Export Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ [[ onnx == \t\o\r\c\h\s\c\r\i\p\t ]]
++ export FORMAT_SUFFIX=onnx
++ FORMAT_SUFFIX=onnx
++ python3 triton/export_model.py --input-path triton/model.py --input-type pyt --output-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx --output-type onnx --ignore-unknown-parameters --onnx-opset 13 --torch-jit none --config /workspace/gpunet/configs/batch1/GV100/1.75ms.json --checkpoint /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar --precision fp16 --dataloader triton/dataloader.py --val-path datasets/ --is-prunet False --batch-size 1
+2023-03-04 14:44:29,688 INFO runner Saving Triton Inference Server triton-server logs in /var/logs/triton-server-experiment-1.log.
+Got additional args []
+2023-03-04 14:44:30,157 INFO export_model args:
+2023-03-04 14:44:30,157 INFO export_model     input_path = triton/model.py
+2023-03-04 14:44:30,157 INFO export_model     input_type = pyt
+2023-03-04 14:44:30,157 INFO export_model     output_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+2023-03-04 14:44:30,157 INFO export_model     output_type = onnx
+2023-03-04 14:44:30,157 INFO export_model     torch_jit = none
+2023-03-04 14:44:30,157 INFO export_model     dataloader = triton/dataloader.py
+2023-03-04 14:44:30,157 INFO export_model     verbose = False
+2023-03-04 14:44:30,157 INFO export_model     ignore_unknown_parameters = True
+2023-03-04 14:44:30,157 INFO export_model     checkpoint = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar
+2023-03-04 14:44:30,157 INFO export_model     onnx_opset = 13
+2023-03-04 14:44:30,157 INFO export_model     config = /workspace/gpunet/configs/batch1/GV100/1.75ms.json
+2023-03-04 14:44:30,157 INFO export_model     val_path = datasets/
+2023-03-04 14:44:30,157 INFO export_model     batch_size = 1
+2023-03-04 14:44:30,157 INFO export_model     precision = fp16
+2023-03-04 14:44:30,157 INFO export_model     is_prunet = False
+2023-03-04 14:44:30,157 INFO triton.deployment_toolkit.args Initializing get_dataloader_fn({'config': '/workspace/gpunet/configs/batch1/GV100/1.75ms.json', 'val_path': 'datasets/', 'batch_size': '1', 'precision': 'fp16', 'is_prunet': 'False'})
+2023-03-04 14:44:32,083 INFO triton.deployment_toolkit.args Initializing PyTorchModelLoader({'config': '/workspace/gpunet/configs/batch1/GV100/1.75ms.json', 'checkpoint': '/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar', 'precision': 'fp16', 'is_prunet': 'False'})
+triton/model.py
+True
+onnx
+2023-03-04 14:44:32,603 INFO timm.models.helpers Loaded state_dict_ema from checkpoint '/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar'
+2023-03-04 14:44:34,027 INFO export_model inputs: {'INPUT__0': TensorSpec(name='INPUT__0', shape=(-1, 3, 384, 384), dtype=dtype('float16'))}
+2023-03-04 14:44:34,027 INFO export_model outputs: {'OUTPUT__0': TensorSpec(name='OUTPUT__0', shape=(-1, 1000), dtype=dtype('float16'))}
+2023-03-04 14:44:34,028 INFO triton.deployment_toolkit.args Initializing PYT2ONNXSaver({'onnx_opset': 13})
+/opt/conda/lib/python3.8/site-packages/torch/onnx/utils.py:117: UserWarning: 'enable_onnx_checker' is deprecated and ignored. It will be removed in the next PyTorch release. To proceed despite ONNX checker failures, catch torch.onnx.CheckerError.
+  warnings.warn("'enable_onnx_checker' is deprecated and ignored. It will be removed in "
+2023-03-04 14:44:46,418 INFO runner [32m[Experiment: 1/1] ================ Stage Export Model Finished ================[39m
+2023-03-04 14:44:46,418 INFO runner [32m[Experiment: 1/1] ================ Stage Convert Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ [[ onnx == \t\o\r\c\h\s\c\r\i\p\t ]]
++ export FORMAT_SUFFIX=onnx
++ FORMAT_SUFFIX=onnx
++ model-navigator convert --model-name GPUnet --model-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx --output-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model --target-formats onnx --target-precisions fp16 --launch-mode local --override-workspace --verbose --onnx-opsets 13 --max-batch-size 64 --container-version 21.12 --max-workspace-size 10000000000 --atol OUTPUT__0=100 --rtol OUTPUT__0=100
+2023-03-04 14:44:46 - DEBUG - model_navigator.log: initialized logger verbose=True
+2023-03-04 14:44:46 - DEBUG - convert: Running 'model-navigator convert' with config_path: None
+2023-03-04 14:44:46 - INFO - model_navigator.log: Environment state
+2023-03-04 14:44:46 - INFO - model_navigator.log: 	docker_container_id = f10a916888
+2023-03-04 14:44:46 - INFO - model_navigator.log: 	docker_container_ip_address = None
+2023-03-04 14:44:46 - INFO - model_navigator.log: 	docker_container_mounts = [{'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/dataset'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/datasets/imagenet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/var/run/docker.sock'), 'container_path': PosixPath('/var/run/docker.sock'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/workspace/gpunet'), 'mount_type': 'bind'}]
+2023-03-04 14:44:46 - DEBUG - model_navigator.validators: Running command validator: <model_navigator.validators.ModelNavigatorDockerContainerShouldHaveMountedWorkspaceDir object at 0x7fe69d4ecbb0>
+2023-03-04 14:44:46 - DEBUG - model_navigator.validators: ModelNavigatorDockerContainerShouldHaveMountedWorkspaceDir is_running_in_container=True has_mounted_workspace_path=True is_running_converter_in_docker=False
+2023-03-04 14:44:47 - DEBUG - model_navigator.utils.workspace: Workspace path /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:44:47 - INFO - model_navigator.log: convert args:
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_name = GPUnet
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_format = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_version = 1
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	target_formats = [<Format.ONNX: 'onnx'>]
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	onnx_opsets = [13]
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_precisions = [<TensorRTPrecision.FP16: 'fp16'>]
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_precisions_mode = TensorRTPrecisionMode.HIERARCHY
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_explicit_precision = False
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_strict_types = False
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_sparse_weights = False
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_max_workspace_size = 10000000000
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	atol = {'OUTPUT__0': 100.0}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	rtol = {'OUTPUT__0': 100.0}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	max_batch_size = 64
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	inputs = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	outputs = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	min_shapes = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	opt_shapes = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	max_shapes = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	value_ranges = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	dtypes = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	workspace_path = navigator_workspace
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	override_workspace = True
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	output_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	container_version = 21.12
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	framework_docker_image = nvcr.io/nvidia/pytorch:21.12-py3
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	gpus = ('all',)
+2023-03-04 14:44:47 - DEBUG - model_navigator.converter.convert: Converter created; workspace=/home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:44:47 - DEBUG - model_navigator.converter.convert: Convert Commands Executor created; workspace=/home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:44:47 - DEBUG - model_navigator.results: Saving results of convert_model stage into /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace/convert_model_results.yaml
+2023-03-04 14:44:47 - DEBUG - model_navigator.results: ConversionResult(status=Status(state=<State.SUCCEEDED: 'succeeded'>, message='Source model', log_path=None), source_model_config=ModelConfig(model_name='GPUnet', model_path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx'), model_format=None, model_version='1'), conversion_config=ConversionConfig(target_format=<Format.ONNX: 'onnx'>, onnx_opset=13, tensorrt_precision=None, tensorrt_precision_mode=<TensorRTPrecisionMode.HIERARCHY: 'hierarchy'>, tensorrt_explicit_precision=False, tensorrt_strict_types=False, tensorrt_sparse_weights=False), tensorrt_common_config=None, model_signature_config=None, comparator_config=None, dataset_profile=None, output_model=Model(name='GPUnet', path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx'), format=<Format.ONNX: 'onnx'>, signature=ModelSignatureConfig(inputs={'INPUT__0': TensorSpec(name='INPUT__0', shape=(-1, 3, 384, 384), dtype=dtype('float16'))}, outputs={'OUTPUT__0': TensorSpec(name='OUTPUT__0', shape=(-1, 1000), dtype=dtype('float16'))}), properties=ONNXProperties(onnx_opset=13), num_required_gpus=None), framework_docker_image=None)
+2023-03-04 14:44:47 - DEBUG - convert: Copy /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:44:47,222 INFO runner [32m[Experiment: 1/1] ================ Stage Convert Model Finished ================[39m
+2023-03-04 14:44:47,222 INFO runner [32m[Experiment: 1/1] ================ Stage Deploy Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ model-navigator triton-config-model --model-repository /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models --model-name GPUnet --model-version 1 --model-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model --model-format onnx --model-control-mode explicit --load-model --load-model-timeout-s 100 --verbose --backend-accelerator trt --tensorrt-precision fp16 --tensorrt-capture-cuda-graph --tensorrt-max-workspace-size 10000000000 --max-batch-size 64 --batching dynamic --preferred-batch-sizes 64 --engine-count-per-device gpu=2
+2023-03-04 14:44:47 - DEBUG - model_navigator.log: initialized logger verbose=True
+2023-03-04 14:44:47 - DEBUG - triton_config_model: Running 'model-navigator triton-config-model' with config_path: None
+2023-03-04 14:44:47 - INFO - model_navigator.log: Environment state
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	docker_container_id = f10a916888
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	docker_container_ip_address = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	docker_container_mounts = [{'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/workspace/gpunet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/dataset'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/datasets/imagenet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/var/run/docker.sock'), 'container_path': PosixPath('/var/run/docker.sock'), 'mount_type': 'bind'}]
+2023-03-04 14:44:47 - DEBUG - model_navigator.validators: Running command validator: <model_navigator.validators.ModelNavigatorBatchingConfiguration object at 0x7ff41cd28eb0>
+2023-03-04 14:44:47 - DEBUG - model_navigator.validators: ModelNavigatorBatchingConfiguration 
+batching=Batching.DYNAMIC 
+max_batch_size=64 
+2023-03-04 14:44:47 - INFO - model_navigator.log: triton-config-model args:
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_name = GPUnet
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_format = Format.ONNX
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_version = 1
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_repository = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	load_model = True
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	load_model_timeout_s = 100
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	model_control_mode = ModelControlMode.EXPLICIT
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	inputs = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	outputs = None
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	max_batch_size = 64
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	batching = Batching.DYNAMIC
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	backend_accelerator = BackendAccelerator.TRT
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_precision = TensorRTOptPrecision.FP16
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_capture_cuda_graph = True
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	tensorrt_max_workspace_size = 10000000000
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	preferred_batch_sizes = [64]
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	max_queue_delay_us = 0
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	engine_count_per_device = {<DeviceKind.GPU: 'gpu'>: 2}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	triton_backend_parameters = {}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	server_url = grpc://localhost:8001
+2023-03-04 14:44:47 - INFO - model_navigator.log: model:
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	name = GPUnet
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	format = Format.ONNX
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	signature = {'inputs': {'INPUT__0': {'name': 'INPUT__0', 'shape': (-1, 3, 384, 384), 'dtype': dtype('float16')}}, 'outputs': {'OUTPUT__0': {'name': 'OUTPUT__0', 'shape': (-1, 1000), 'dtype': dtype('float16')}}}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	properties = {'onnx_opset': 13}
+2023-03-04 14:44:47 - INFO - model_navigator.log: 	num_required_gpus = None
+2023-03-04 14:44:47 - DEBUG - model_navigator.triton.model_store: Deploying model /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model in Triton Model Store /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models with: 
+batching config: TritonBatchingConfig(max_batch_size=64, batching=<Batching.DYNAMIC: 'dynamic'>)
+optimization config: TritonModelOptimizationConfig(backend_accelerator=<BackendAccelerator.TRT: 'trt'>, tensorrt_precision=<TensorRTOptPrecision.FP16: 'fp16'>, tensorrt_capture_cuda_graph=True)
+dynamic batching config: TritonDynamicBatchingConfig(preferred_batch_sizes=[64], max_queue_delay_us=0)
+2023-03-04 14:44:47 - DEBUG - model_navigator.triton.model_store: Copying /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models/GPUnet/1/model.onnx
+2023-03-04 14:44:47 - DEBUG - model_navigator.triton.model_config: Generated Triton config:
+name: "GPUnet"
+max_batch_size: 64
+instance_group {
+  count: 2
+  kind: KIND_GPU
+}
+dynamic_batching {
+  preferred_batch_size: 64
+}
+optimization {
+  execution_accelerators {
+    gpu_execution_accelerator {
+      name: "tensorrt"
+      parameters {
+        key: "max_workspace_size_bytes"
+        value: "10000000000"
+      }
+      parameters {
+        key: "precision_mode"
+        value: "FP16"
+      }
+    }
+  }
+}
+backend: "onnxruntime"
+
+2023-03-04 14:44:47 - DEBUG - triton_config_model: Loading model GPUnet:1 model_control_mode: ModelControlMode.EXPLICIT
+2023-03-04 14:44:47 - DEBUG - model_navigator.triton.client: Connecting to grpc://localhost:8001
+2023-03-04 14:44:47 - DEBUG - triton_config_model: Waiting for server (timeout=5s)
+is_server_ready, metadata ()
+
+ready: true
+
+is_server_live, metadata ()
+
+live: true
+
+2023-03-04 14:44:47 - DEBUG - triton_config_model: Sending load_model request
+load_model, metadata ()
+override files omitted:
+model_name: "GPUnet"
+
+2023-03-04 14:44:47 - DEBUG - triton_config_model: Encountered exception 
+Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 226, in config_model_on_triton_cmd
+    _load_model(
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 89, in _load_model
+    client.load_model(model_name=model_name)
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/triton/client.py", line 188, in load_model
+    self.client.load_model(model_name)
+  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 686, in load_model
+    raise_error_grpc(rpc_error)
+  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 76, in raise_error_grpc
+    raise get_error_grpc(rpc_error) from None
+tritonclient.utils.InferenceServerException: [StatusCode.INTERNAL] failed to load 'GPUnet', no version is available
+
+2023-03-04 14:44:47 - DEBUG - model_navigator.utils.workspace: Workspace path /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:44:47 - DEBUG - model_navigator.results: Saving results of triton_config_model stage into /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace/triton_config_model_results.yaml
+2023-03-04 14:44:47 - DEBUG - model_navigator.results: ConfigModelResult(status=Status(state=<State.FAILED: 'failed'>, message='Traceback (most recent call last):\n  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 226, in config_model_on_triton_cmd\n    _load_model(\n  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 89, in _load_model\n    client.load_model(model_name=model_name)\n  File "/opt/conda/lib/python3.8/site-packages/model_navigator/triton/client.py", line 188, in load_model\n    self.client.load_model(model_name)\n  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 686, in load_model\n    raise_error_grpc(rpc_error)\n  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 76, in raise_error_grpc\n    raise get_error_grpc(rpc_error) from None\ntritonclient.utils.InferenceServerException: [StatusCode.INTERNAL] failed to load \'GPUnet\', no version is available\n', log_path=None), model_config=ModelConfig(model_name='GPUnet', model_path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model'), model_format=<Format.ONNX: 'onnx'>, model_version='1'), model_version='1', batching_config=TritonBatchingConfig(max_batch_size=64, batching=<Batching.DYNAMIC: 'dynamic'>), optimization_config=TritonModelOptimizationConfig(backend_accelerator=<BackendAccelerator.TRT: 'trt'>, tensorrt_precision=<TensorRTOptPrecision.FP16: 'fp16'>, tensorrt_capture_cuda_graph=True), dynamic_batching_config=TritonDynamicBatchingConfig(preferred_batch_sizes=[64], max_queue_delay_us=0), instances_config=TritonModelInstancesConfig(engine_count_per_device={<DeviceKind.GPU: 'gpu'>: 2}), tensorrt_common_config=TensorRTCommonConfig(tensorrt_max_workspace_size=10000000000), model_dir_in_model_store=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models/GPUnet'))
+2023-03-04 14:44:47 - ERROR - model_navigator.log: Traceback (most recent call last):
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 226, in config_model_on_triton_cmd
+    _load_model(
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/cli/triton_config_model.py", line 89, in _load_model
+    client.load_model(model_name=model_name)
+  File "/opt/conda/lib/python3.8/site-packages/model_navigator/triton/client.py", line 188, in load_model
+    self.client.load_model(model_name)
+  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 686, in load_model
+    raise_error_grpc(rpc_error)
+  File "/opt/conda/lib/python3.8/site-packages/tritonclient/grpc/__init__.py", line 76, in raise_error_grpc
+    raise get_error_grpc(rpc_error) from None
+tritonclient.utils.InferenceServerException: [StatusCode.INTERNAL] failed to load 'GPUnet', no version is available
+
+2023-03-04 14:44:47,891 ERROR runner Stage Deploy Model failed.
+2023-03-04 14:44:47,894 INFO runner Triton Inference Server instance triton-server failed. Exit code: 139
+2023-03-04 14:44:47,895 INFO runner Stopping triton server triton-server.
+2023-03-04 14:44:48,158 INFO runner [36m================ Experiment: 1/1 Finished ================[39m
+2023-03-04 14:44:48,159 WARNING runner No triton_performance_offline results found.
+2023-03-04 14:44:48,159 WARNING runner No triton_performance_online results found.
+2023-03-04 14:44:48,166 INFO runner Task details and results stored in /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results
+2023-03-04 14:45:55,809 INFO runner Preparing Triton container image
+2023-03-04 14:45:55,809 INFO runner Using official Triton container image: nvcr.io/nvidia/tritonserver:21.12-py3.
+2023-03-04 14:45:55,809 INFO runner Initialize task
+2023-03-04 14:46:03,552 INFO runner Preparing directories
+2023-03-04 14:46:03,552 INFO runner Directory results created.
+2023-03-04 14:46:03,553 INFO runner Directory /var/logs created.
+2023-03-04 14:46:03,553 INFO runner Directory checkpoints created.
+2023-03-04 14:46:03,553 INFO runner Clean previous run artifacts directories
+2023-03-04 14:46:03,553 INFO runner Location /var/logs cleaned.
+2023-03-04 14:46:03,553 INFO runner Location results cleaned.
+2023-03-04 14:46:03,553 INFO runner Downloading checkpoints
+2023-03-04 14:46:03,553 INFO runner Checkpoint 1.75ms already downloaded.
+2023-03-04 14:46:03,553 INFO runner [32m================ Creating Artifacts Directories Started ================[39m
+2023-03-04 14:46:03,553 INFO runner Removing previous executor workspace: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor
+2023-03-04 14:46:03,576 INFO runner Directory libs created.
+2023-03-04 14:46:03,576 INFO runner Directory shared created.
+2023-03-04 14:46:03,576 INFO runner Directory scripts created.
+2023-03-04 14:46:03,576 INFO runner Directory triton_models created.
+2023-03-04 14:46:03,577 INFO runner [32m================ Creating Artifacts Directories Finished ================[39m
+2023-03-04 14:46:03,577 INFO runner Total experiments to verify: 1
+2023-03-04 14:46:03,577 INFO runner [36m================ Experiment: 1/1 Started ================[39m
+2023-03-04 14:46:03,577 INFO runner Experiment details
+2023-03-04 14:46:03,577 INFO runner {
+    "MODEL_NAME": "GPUnet",
+    "ENSEMBLE_MODEL_NAME": null,
+    "FRAMEWORK": "PyTorch",
+    "SHARED_DIR": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared",
+    "MODEL_REPOSITORY_PATH": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models",
+    "TRITON_SERVER_URL": "localhost",
+    "TRITON_LOAD_MODEL_METHOD": "explicit",
+    "PERFORMANCE_TOOL": "model_analyzer",
+    "MODEL_BATCHING": "dynamic",
+    "MEASUREMENT_OFFLINE_BATCH_SIZES": "8 16 24 32 40 48 56 64",
+    "MEASUREMENT_OFFLINE_CONCURRENCY": "1",
+    "MEASUREMENT_ONLINE_BATCH_SIZES": "2",
+    "MEASUREMENT_ONLINE_CONCURRENCY": "4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72 76 80 84 88 92 96 100 104 108 112 116 120 124 128",
+    "MEASUREMENT_MIN_SHAPES_BATCH": 2,
+    "MEASUREMENT_MAX_SHAPES_BATCH": 64,
+    "MEASUREMENT_OPT_SHAPES_BATCH": 64,
+    "CHECKPOINT_DIR": "/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms",
+    "DATASETS_DIR": "datasets",
+    "BACKEND_ACCELERATOR": "trt",
+    "CHECKPOINT": "1.75ms",
+    "DEVICE_KIND": "gpu",
+    "EXPORT_FORMAT": "onnx",
+    "EXPORT_PRECISION": "fp16",
+    "FORMAT": "onnx",
+    "MAX_BATCH_SIZE": "64",
+    "NUMBER_OF_MODEL_INSTANCES": "2",
+    "PRECISION": "fp16",
+    "TENSORRT_CAPTURE_CUDA_GRAPH": "0",
+    "TORCH_JIT": "none"
+}
+2023-03-04 14:46:03,577 INFO runner [32m[Experiment: 1/1] ================ Cleanup Experiment Data Started ================[39m
+2023-03-04 14:46:03,577 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared cleaned.
+2023-03-04 14:46:03,577 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/scripts cleaned.
+2023-03-04 14:46:03,577 INFO runner Location /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models cleaned.
+2023-03-04 14:46:03,577 INFO runner [32m[Experiment: 1/1] ================ Cleanup Experiment Data Finished ================[39m
+2023-03-04 14:46:03,577 INFO runner Running Triton Servers:
+2023-03-04 14:46:03,592 INFO runner Triton environment: {
+    "MODEL_REPOSITORY_PATH": "/mnt/triton-models",
+    "LIBRARIES_PATH": "/mnt/libs",
+    "TRITON_LOAD_MODEL_METHOD": "explicit",
+    "ORT_TENSORRT_FP16_ENABLE": 1
+}
+2023-03-04 14:46:03,592 INFO runner Starting Triton container triton-server.
+2023-03-04 14:46:03,783 INFO runner Triton command:
+2023-03-04 14:46:03,783 INFO runner    bash -c "tritonserver --model-store=/mnt/triton-models --model-control-mode=explicit --strict-model-config=false --allow-metrics=false --allow-gpu-metrics=false"
+2023-03-04 14:46:03,783 INFO runner Starting Triton Server triton-server.
+2023-03-04 14:46:03,789 INFO runner [32m[Experiment: 1/1] ================ Stage Export Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ [[ onnx == \t\o\r\c\h\s\c\r\i\p\t ]]
++ export FORMAT_SUFFIX=onnx
++ FORMAT_SUFFIX=onnx
++ python3 triton/export_model.py --input-path triton/model.py --input-type pyt --output-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx --output-type onnx --ignore-unknown-parameters --onnx-opset 13 --torch-jit none --config /workspace/gpunet/configs/batch1/GV100/1.75ms.json --checkpoint /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar --precision fp16 --dataloader triton/dataloader.py --val-path datasets/ --is-prunet False --batch-size 1
+Got additional args []
+2023-03-04 14:46:05,440 INFO export_model args:
+2023-03-04 14:46:05,440 INFO export_model     input_path = triton/model.py
+2023-03-04 14:46:05,440 INFO export_model     input_type = pyt
+2023-03-04 14:46:05,440 INFO export_model     output_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+2023-03-04 14:46:05,440 INFO export_model     output_type = onnx
+2023-03-04 14:46:05,440 INFO export_model     torch_jit = none
+2023-03-04 14:46:05,440 INFO export_model     dataloader = triton/dataloader.py
+2023-03-04 14:46:05,440 INFO export_model     verbose = False
+2023-03-04 14:46:05,440 INFO export_model     ignore_unknown_parameters = True
+2023-03-04 14:46:05,440 INFO export_model     checkpoint = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar
+2023-03-04 14:46:05,440 INFO export_model     onnx_opset = 13
+2023-03-04 14:46:05,440 INFO export_model     config = /workspace/gpunet/configs/batch1/GV100/1.75ms.json
+2023-03-04 14:46:05,440 INFO export_model     val_path = datasets/
+2023-03-04 14:46:05,440 INFO export_model     batch_size = 1
+2023-03-04 14:46:05,440 INFO export_model     precision = fp16
+2023-03-04 14:46:05,440 INFO export_model     is_prunet = False
+2023-03-04 14:46:05,441 INFO triton.deployment_toolkit.args Initializing get_dataloader_fn({'config': '/workspace/gpunet/configs/batch1/GV100/1.75ms.json', 'val_path': 'datasets/', 'batch_size': '1', 'precision': 'fp16', 'is_prunet': 'False'})
+2023-03-04 14:46:07,258 INFO triton.deployment_toolkit.args Initializing PyTorchModelLoader({'config': '/workspace/gpunet/configs/batch1/GV100/1.75ms.json', 'checkpoint': '/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar', 'precision': 'fp16', 'is_prunet': 'False'})
+triton/model.py
+True
+onnx
+2023-03-04 14:46:07,797 INFO timm.models.helpers Loaded state_dict_ema from checkpoint '/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/checkpoints/1.75ms/1.75ms.pth.tar'
+2023-03-04 14:46:08,820 INFO export_model inputs: {'INPUT__0': TensorSpec(name='INPUT__0', shape=(-1, 3, 384, 384), dtype=dtype('float16'))}
+2023-03-04 14:46:08,820 INFO export_model outputs: {'OUTPUT__0': TensorSpec(name='OUTPUT__0', shape=(-1, 1000), dtype=dtype('float16'))}
+2023-03-04 14:46:08,821 INFO triton.deployment_toolkit.args Initializing PYT2ONNXSaver({'onnx_opset': 13})
+/opt/conda/lib/python3.8/site-packages/torch/onnx/utils.py:117: UserWarning: 'enable_onnx_checker' is deprecated and ignored. It will be removed in the next PyTorch release. To proceed despite ONNX checker failures, catch torch.onnx.CheckerError.
+  warnings.warn("'enable_onnx_checker' is deprecated and ignored. It will be removed in "
+2023-03-04 14:46:19,356 INFO runner [32m[Experiment: 1/1] ================ Stage Export Model Finished ================[39m
+2023-03-04 14:46:19,356 INFO runner [32m[Experiment: 1/1] ================ Stage Convert Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ [[ onnx == \t\o\r\c\h\s\c\r\i\p\t ]]
++ export FORMAT_SUFFIX=onnx
++ FORMAT_SUFFIX=onnx
++ model-navigator convert --model-name GPUnet --model-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx --output-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model --target-formats onnx --target-precisions fp16 --launch-mode local --override-workspace --verbose --onnx-opsets 13 --max-batch-size 64 --container-version 21.12 --max-workspace-size 10000000000 --atol OUTPUT__0=100 --rtol OUTPUT__0=100
+2023-03-04 14:46:19 - DEBUG - model_navigator.log: initialized logger verbose=True
+2023-03-04 14:46:19 - DEBUG - convert: Running 'model-navigator convert' with config_path: None
+2023-03-04 14:46:19 - INFO - model_navigator.log: Environment state
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	docker_container_id = 16a7730c99
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	docker_container_ip_address = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	docker_container_mounts = [{'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/workspace/gpunet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/dataset'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/datasets/imagenet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/var/run/docker.sock'), 'container_path': PosixPath('/var/run/docker.sock'), 'mount_type': 'bind'}]
+2023-03-04 14:46:19 - DEBUG - model_navigator.validators: Running command validator: <model_navigator.validators.ModelNavigatorDockerContainerShouldHaveMountedWorkspaceDir object at 0x7f5c0437dbb0>
+2023-03-04 14:46:19 - DEBUG - model_navigator.validators: ModelNavigatorDockerContainerShouldHaveMountedWorkspaceDir is_running_in_container=True has_mounted_workspace_path=True is_running_converter_in_docker=False
+2023-03-04 14:46:19 - DEBUG - model_navigator.utils.workspace: Workspace path /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:46:19 - INFO - model_navigator.log: convert args:
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	model_name = GPUnet
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	model_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	model_format = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	model_version = 1
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	target_formats = [<Format.ONNX: 'onnx'>]
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	onnx_opsets = [13]
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_precisions = [<TensorRTPrecision.FP16: 'fp16'>]
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_precisions_mode = TensorRTPrecisionMode.HIERARCHY
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_explicit_precision = False
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_strict_types = False
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_sparse_weights = False
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	tensorrt_max_workspace_size = 10000000000
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	atol = {'OUTPUT__0': 100.0}
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	rtol = {'OUTPUT__0': 100.0}
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	max_batch_size = 64
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	inputs = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	outputs = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	min_shapes = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	opt_shapes = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	max_shapes = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	value_ranges = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	dtypes = None
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	workspace_path = navigator_workspace
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	override_workspace = True
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	output_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	container_version = 21.12
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	framework_docker_image = nvcr.io/nvidia/pytorch:21.12-py3
+2023-03-04 14:46:19 - INFO - model_navigator.log: 	gpus = ('all',)
+2023-03-04 14:46:19 - DEBUG - model_navigator.utils.workspace: Cleaning workspace dir /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:46:19 - DEBUG - model_navigator.converter.convert: Converter created; workspace=/home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:46:19 - DEBUG - model_navigator.converter.convert: Convert Commands Executor created; workspace=/home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:46:20 - DEBUG - model_navigator.results: Saving results of convert_model stage into /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace/convert_model_results.yaml
+2023-03-04 14:46:20 - DEBUG - model_navigator.results: ConversionResult(status=Status(state=<State.SUCCEEDED: 'succeeded'>, message='Source model', log_path=None), source_model_config=ModelConfig(model_name='GPUnet', model_path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx'), model_format=None, model_version='1'), conversion_config=ConversionConfig(target_format=<Format.ONNX: 'onnx'>, onnx_opset=13, tensorrt_precision=None, tensorrt_precision_mode=<TensorRTPrecisionMode.HIERARCHY: 'hierarchy'>, tensorrt_explicit_precision=False, tensorrt_strict_types=False, tensorrt_sparse_weights=False), tensorrt_common_config=None, model_signature_config=None, comparator_config=None, dataset_profile=None, output_model=Model(name='GPUnet', path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx'), format=<Format.ONNX: 'onnx'>, signature=ModelSignatureConfig(inputs={'INPUT__0': TensorSpec(name='INPUT__0', shape=(-1, 3, 384, 384), dtype=dtype('float16'))}, outputs={'OUTPUT__0': TensorSpec(name='OUTPUT__0', shape=(-1, 1000), dtype=dtype('float16'))}), properties=ONNXProperties(onnx_opset=13), num_required_gpus=None), framework_docker_image=None)
+2023-03-04 14:46:20 - DEBUG - convert: Copy /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:46:20,156 INFO runner [32m[Experiment: 1/1] ================ Stage Convert Model Finished ================[39m
+2023-03-04 14:46:20,156 INFO runner [32m[Experiment: 1/1] ================ Stage Deploy Model Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ model-navigator triton-config-model --model-repository /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models --model-name GPUnet --model-version 1 --model-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model --model-format onnx --model-control-mode explicit --load-model --load-model-timeout-s 100 --verbose --backend-accelerator trt --tensorrt-precision fp16 --tensorrt-capture-cuda-graph --tensorrt-max-workspace-size 10000000000 --max-batch-size 64 --batching dynamic --preferred-batch-sizes 64 --engine-count-per-device gpu=2
+2023-03-04 14:46:20 - DEBUG - model_navigator.log: initialized logger verbose=True
+2023-03-04 14:46:20 - DEBUG - triton_config_model: Running 'model-navigator triton-config-model' with config_path: None
+2023-03-04 14:46:20 - INFO - model_navigator.log: Environment state
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	docker_container_id = 16a7730c99
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	docker_container_ip_address = None
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	docker_container_mounts = [{'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/workspace/gpunet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/dataset'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/datasets/imagenet'), 'mount_type': 'bind'}, {'host_path': PosixPath('/var/run/docker.sock'), 'container_path': PosixPath('/var/run/docker.sock'), 'mount_type': 'bind'}, {'host_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'container_path': PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet'), 'mount_type': 'bind'}]
+2023-03-04 14:46:20 - DEBUG - model_navigator.validators: Running command validator: <model_navigator.validators.ModelNavigatorBatchingConfiguration object at 0x7ff694ff0eb0>
+2023-03-04 14:46:20 - DEBUG - model_navigator.validators: ModelNavigatorBatchingConfiguration 
+batching=Batching.DYNAMIC 
+max_batch_size=64 
+2023-03-04 14:46:20 - INFO - model_navigator.log: triton-config-model args:
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_name = GPUnet
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_format = Format.ONNX
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_version = 1
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_repository = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	load_model = True
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	load_model_timeout_s = 100
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	model_control_mode = ModelControlMode.EXPLICIT
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	inputs = None
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	outputs = None
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	max_batch_size = 64
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	batching = Batching.DYNAMIC
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	backend_accelerator = BackendAccelerator.TRT
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	tensorrt_precision = TensorRTOptPrecision.FP16
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	tensorrt_capture_cuda_graph = True
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	tensorrt_max_workspace_size = 10000000000
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	preferred_batch_sizes = [64]
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	max_queue_delay_us = 0
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	engine_count_per_device = {<DeviceKind.GPU: 'gpu'>: 2}
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	triton_backend_parameters = {}
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	server_url = grpc://localhost:8001
+2023-03-04 14:46:20 - INFO - model_navigator.log: model:
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	name = GPUnet
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	format = Format.ONNX
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	signature = {'inputs': {'INPUT__0': {'name': 'INPUT__0', 'shape': (-1, 3, 384, 384), 'dtype': dtype('float16')}}, 'outputs': {'OUTPUT__0': {'name': 'OUTPUT__0', 'shape': (-1, 1000), 'dtype': dtype('float16')}}}
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	properties = {'onnx_opset': 13}
+2023-03-04 14:46:20 - INFO - model_navigator.log: 	num_required_gpus = None
+2023-03-04 14:46:20 - DEBUG - model_navigator.triton.model_store: Deploying model /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model in Triton Model Store /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models with: 
+batching config: TritonBatchingConfig(max_batch_size=64, batching=<Batching.DYNAMIC: 'dynamic'>)
+optimization config: TritonModelOptimizationConfig(backend_accelerator=<BackendAccelerator.TRT: 'trt'>, tensorrt_precision=<TensorRTOptPrecision.FP16: 'fp16'>, tensorrt_capture_cuda_graph=True)
+dynamic batching config: TritonDynamicBatchingConfig(preferred_batch_sizes=[64], max_queue_delay_us=0)
+2023-03-04 14:46:20 - DEBUG - model_navigator.triton.model_store: Copying /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models/GPUnet/1/model.onnx
+2023-03-04 14:46:20 - DEBUG - model_navigator.triton.model_config: Generated Triton config:
+name: "GPUnet"
+max_batch_size: 64
+instance_group {
+  count: 2
+  kind: KIND_GPU
+}
+dynamic_batching {
+  preferred_batch_size: 64
+}
+optimization {
+  execution_accelerators {
+    gpu_execution_accelerator {
+      name: "tensorrt"
+      parameters {
+        key: "max_workspace_size_bytes"
+        value: "10000000000"
+      }
+      parameters {
+        key: "precision_mode"
+        value: "FP16"
+      }
+    }
+  }
+}
+backend: "onnxruntime"
+
+2023-03-04 14:46:20 - DEBUG - triton_config_model: Loading model GPUnet:1 model_control_mode: ModelControlMode.EXPLICIT
+2023-03-04 14:46:20 - DEBUG - model_navigator.triton.client: Connecting to grpc://localhost:8001
+2023-03-04 14:46:20 - DEBUG - triton_config_model: Waiting for server (timeout=5s)
+is_server_ready, metadata ()
+
+ready: true
+
+is_server_live, metadata ()
+
+live: true
+
+2023-03-04 14:46:20 - DEBUG - triton_config_model: Sending load_model request
+load_model, metadata ()
+override files omitted:
+model_name: "GPUnet"
+
+Loaded model 'GPUnet'
+2023-03-04 14:46:24 - DEBUG - triton_config_model: Polling for model availability (timeout=100s)
+get_model_repository_index, metadata ()
+
+models {
+  name: "GPUnet"
+  version: "1"
+  state: "READY"
+}
+
+is_model_ready, metadata ()
+name: "GPUnet"
+
+ready: true
+
+get_model_metadata, metadata ()
+name: "GPUnet"
+
+name: "GPUnet"
+versions: "1"
+platform: "onnxruntime_onnx"
+inputs {
+  name: "INPUT__0"
+  datatype: "FP16"
+  shape: -1
+  shape: 3
+  shape: 384
+  shape: 384
+}
+outputs {
+  name: "OUTPUT__0"
+  datatype: "FP16"
+  shape: -1
+  shape: 1000
+}
+
+2023-03-04 14:46:24 - DEBUG - model_navigator.utils.workspace: Workspace path /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace
+2023-03-04 14:46:24 - DEBUG - model_navigator.results: Saving results of triton_config_model stage into /home/cc/DLEx/PyTorch/Classification/GPUNet/navigator_workspace/triton_config_model_results.yaml
+2023-03-04 14:46:24 - DEBUG - model_navigator.results: ConfigModelResult(status=Status(state=<State.SUCCEEDED: 'succeeded'>, message='Model configured and loaded correctly', log_path=None), model_config=ModelConfig(model_name='GPUnet', model_path=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/converted_model'), model_format=<Format.ONNX: 'onnx'>, model_version='1'), model_version='1', batching_config=TritonBatchingConfig(max_batch_size=64, batching=<Batching.DYNAMIC: 'dynamic'>), optimization_config=TritonModelOptimizationConfig(backend_accelerator=<BackendAccelerator.TRT: 'trt'>, tensorrt_precision=<TensorRTOptPrecision.FP16: 'fp16'>, tensorrt_capture_cuda_graph=True), dynamic_batching_config=TritonDynamicBatchingConfig(preferred_batch_sizes=[64], max_queue_delay_us=0), instances_config=TritonModelInstancesConfig(engine_count_per_device={<DeviceKind.GPU: 'gpu'>: 2}), tensorrt_common_config=TensorRTCommonConfig(tensorrt_max_workspace_size=10000000000), model_dir_in_model_store=PosixPath('/home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models/GPUnet'))
+2023-03-04 14:46:24,825 INFO runner [32m[Experiment: 1/1] ================ Stage Deploy Model Finished ================[39m
+2023-03-04 14:46:24,826 INFO runner [32m[Experiment: 1/1] ================ Stage Triton Performance Offline Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ python triton/run_performance_on_triton.py --model-repository /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models --model-name GPUnet --input-data random --batch-sizes 1 2 4 8 16 32 64 --concurrency 1 --evaluation-mode offline --measurement-request-count 10 --warmup --performance-tool perf_analyzer --result-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/triton_performance_offline.csv
+2023-03-04 14:46:25,038 INFO triton_performance_runner Running warmup before the main test
+2023-03-04 14:46:25,038 INFO triton_performance_runner Using Perf Analyzer for performance evaluation
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils Selected configuration
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	server_url = http://127.0.0.1:8000
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	model_name = GPUnet
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	input_data = random
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	input_shapes = []
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	batch_sizes = [1, 2, 4, 8, 16, 32, 64]
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	concurrency = [1]
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	measurement_mode = MeasurementMode.COUNT_WINDOWS
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	measurement_interval = 5000
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	measurement_request_count = 10
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	evaluation_mode = EvaluationMode.OFFLINE
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	offline_mode = OfflineMode.SYSTEM
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	output_shared_memory_size = 102400
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	result_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/triton_performance_offline.csv
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	timeout = None
+2023-03-04 14:46:25,038 INFO triton.deployment_toolkit.utils 	verbose = False
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 20
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Pass [1] throughput: 2.36105 infer/sec. Avg latency: 423538 usec (std 0 usec)
+  Pass [2] throughput: 699 infer/sec. Avg latency: 1430 usec (std 9 usec)
+  Pass [3] throughput: 698 infer/sec. Avg latency: 1430 usec (std 11 usec)
+  Pass [4] throughput: 699 infer/sec. Avg latency: 1429 usec (std 4 usec)
+  Client:
+    Request count: 699
+    Throughput: 699 infer/sec
+    Avg latency: 1429 usec (standard deviation 4 usec)
+    p50 latency: 1429 usec
+    p90 latency: 1436 usec
+    p95 latency: 1437 usec
+    p99 latency: 1439 usec
+    Avg HTTP time: 1428 usec (send 13 usec + response wait 1415 usec + receive 0 usec)
+  Server:
+    Inference count: 700
+    Execution count: 700
+    Successful request count: 700
+    Avg request latency: 1375 usec (overhead 12 usec + queue 12 usec + compute input 99 usec + compute infer 1248 usec + compute output 4 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 699 infer/sec, latency 1429 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 698
+    Throughput: 698 infer/sec
+    Avg latency: 1430 usec (standard deviation 7 usec)
+    p50 latency: 1429 usec
+    p90 latency: 1436 usec
+    p95 latency: 1438 usec
+    p99 latency: 1441 usec
+    Avg HTTP time: 1429 usec (send/recv 13 usec + response wait 1416 usec)
+  Server:
+    Inference count: 699
+    Execution count: 699
+    Successful request count: 699
+    Avg request latency: 1375 usec (overhead 12 usec + queue 12 usec + compute input 99 usec + compute infer 1248 usec + compute output 4 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 698 infer/sec, latency 1430 usec
+*** Measurement Settings ***
+  Batch size: 2
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 594
+    Throughput: 1188 infer/sec
+    Avg latency: 1680 usec (standard deviation 6 usec)
+    p50 latency: 1680 usec
+    p90 latency: 1688 usec
+    p95 latency: 1690 usec
+    p99 latency: 1693 usec
+    Avg HTTP time: 1679 usec (send/recv 13 usec + response wait 1666 usec)
+  Server:
+    Inference count: 1190
+    Execution count: 595
+    Successful request count: 595
+    Avg request latency: 1626 usec (overhead 14 usec + queue 12 usec + compute input 146 usec + compute infer 1450 usec + compute output 4 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 1188 infer/sec, latency 1680 usec
+*** Measurement Settings ***
+  Batch size: 4
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 449
+    Throughput: 1794.21 infer/sec
+    Avg latency: 2224 usec (standard deviation 22 usec)
+    p50 latency: 2222 usec
+    p90 latency: 2230 usec
+    p95 latency: 2232 usec
+    p99 latency: 2238 usec
+    Avg HTTP time: 2222 usec (send/recv 13 usec + response wait 2209 usec)
+  Server:
+    Inference count: 1800
+    Execution count: 450
+    Successful request count: 450
+    Avg request latency: 2168 usec (overhead 13 usec + queue 12 usec + compute input 246 usec + compute infer 1892 usec + compute output 5 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 1794.21 infer/sec, latency 2224 usec
+*** Measurement Settings ***
+  Batch size: 8
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 300
+    Throughput: 2400 infer/sec
+    Avg latency: 3324 usec (standard deviation 16 usec)
+    p50 latency: 3328 usec
+    p90 latency: 3343 usec
+    p95 latency: 3345 usec
+    p99 latency: 3350 usec
+    Avg HTTP time: 3323 usec (send/recv 13 usec + response wait 3310 usec)
+  Server:
+    Inference count: 2408
+    Execution count: 301
+    Successful request count: 301
+    Avg request latency: 3269 usec (overhead 14 usec + queue 11 usec + compute input 437 usec + compute infer 2802 usec + compute output 5 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 2400 infer/sec, latency 3324 usec
+*** Measurement Settings ***
+  Batch size: 16
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 178
+    Throughput: 2848 infer/sec
+    Avg latency: 5590 usec (standard deviation 79 usec)
+    p50 latency: 5621 usec
+    p90 latency: 5664 usec
+    p95 latency: 5668 usec
+    p99 latency: 5684 usec
+    Avg HTTP time: 5589 usec (send/recv 13 usec + response wait 5576 usec)
+  Server:
+    Inference count: 2864
+    Execution count: 179
+    Successful request count: 179
+    Avg request latency: 5535 usec (overhead 16 usec + queue 113 usec + compute input 845 usec + compute infer 4552 usec + compute output 9 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 2848 infer/sec, latency 5590 usec
+*** Measurement Settings ***
+  Batch size: 32
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 98
+    Throughput: 3136 infer/sec
+    Avg latency: 10103 usec (standard deviation 68 usec)
+    p50 latency: 10101 usec
+    p90 latency: 10186 usec
+    p95 latency: 10211 usec
+    p99 latency: 10224 usec
+    Avg HTTP time: 10099 usec (send/recv 35 usec + response wait 10064 usec)
+  Server:
+    Inference count: 3168
+    Execution count: 99
+    Successful request count: 99
+    Avg request latency: 9895 usec (overhead 19 usec + queue 220 usec + compute input 1656 usec + compute infer 7988 usec + compute output 12 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 3136 infer/sec, latency 10103 usec
+*** Measurement Settings ***
+  Batch size: 64
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 10
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 1
+  Client:
+    Request count: 52
+    Throughput: 3328 infer/sec
+    Avg latency: 19152 usec (standard deviation 80 usec)
+    p50 latency: 19160 usec
+    p90 latency: 19245 usec
+    p95 latency: 19258 usec
+    p99 latency: 19319 usec
+    Avg HTTP time: 19146 usec (send/recv 38 usec + response wait 19108 usec)
+  Server:
+    Inference count: 3392
+    Execution count: 53
+    Successful request count: 53
+    Avg request latency: 19032 usec (overhead 23 usec + queue 134 usec + compute input 3953 usec + compute infer 14902 usec + compute output 20 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 1, throughput: 3328 infer/sec, latency 19152 usec
+  Batch    Concurrency    Inferences/Second    Client Send    Network+Server Send/Recv    Server Queue    Server Compute Input    Server Compute Infer    Server Compute Output    Client Recv    p50 latency    p90 latency    p95 latency    p99 latency    avg latency
+-------  -------------  -------------------  -------------  --------------------------  --------------  ----------------------  ----------------------  -----------------------  -------------  -------------  -------------  -------------  -------------  -------------
+      1              1               698                13                          52              12                      99                    1248                        4              0           1429           1436           1438           1441           1428
+      2              1              1188                13                          52              12                     146                    1450                        4              0           1680           1688           1690           1693           1677
+      4              1              1794.21             13                          53              12                     246                    1892                        5              0           2222           2230           2232           2238           2221
+      8              1              2400                13                          53              11                     437                    2802                        5              0           3328           3343           3345           3350           3321
+     16              1              2848                13                          56             113                     845                    4552                        9              0           5621           5664           5668           5684           5588
+     32              1              3136                35                         188             220                    1656                    7988                       12              0          10101          10186          10211          10224          10099
+     64              1              3328                38                         101             134                    3953                   14902                       20              0          19160          19245          19258          19319          19148
+2023-03-04 15:06:10,370 INFO runner Saving triton_performance_offline to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results/experiment_1
+2023-03-04 15:06:10,370 INFO runner Done
+2023-03-04 15:06:10,370 INFO runner [32m[Experiment: 1/1] ================ Stage Triton Performance Offline Finished ================[39m
+2023-03-04 15:06:10,370 INFO runner [32m[Experiment: 1/1] ================ Stage Triton Performance Online Started ================[39m
++ test -f /etc/shinit_v2
++ source /etc/shinit_v2
++++ sed -n 's/^NVRM.*Kernel Module *\([^() ]*\).*$/\1/p' /proc/driver/nvidia/version
++++ sed 's/^$/unknown/'
+++ NV_DRIVER_VERS=530.30.02
+++ export _CUDA_COMPAT_PATH=/usr/local/cuda/compat
+++ _CUDA_COMPAT_PATH=/usr/local/cuda/compat
++++ hostname
+++ _CUDA_COMPAT_CHECKFILE=/usr/local/cuda/compat/.530.30.02.a100.checked
+++ _CUDA_COMPAT_REALLIB=/usr/local/cuda/compat/lib.real
+++ _CUDA_COMPAT_SYMLINK=/usr/local/cuda/compat/lib
+++ '[' -n 530.30.02 -a -e /dev/nvidiactl -a '!' -e /usr/local/cuda/compat/.530.30.02.a100.checked ']'
++++ cat /sys/module/mlx5_core/version
++++ true
+++ DETECTED_MOFED=
+++ dpkg --compare-versions 0 lt 4.9
+++ export 'OMPI_MCA_pml=^ucx'
+++ OMPI_MCA_pml='^ucx'
+++ unset _CUDA_COMPAT_CHECKFILE
+++ unset _CUDA_COMPAT_REALLIB
+++ unset _CUDA_COMPAT_SYMLINK
++ '[' -z '' ']'
++ return
++ set -x
++ set -e
++ export PYTHONUNBUFFERED=1
++ PYTHONUNBUFFERED=1
+++ pwd
++ export PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ PYTHONPATH=/home/cc/DLEx/PyTorch/Classification/GPUNet
++ python triton/run_performance_on_triton.py --model-repository /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/triton_models --model-name GPUnet --input-data random --batch-sizes 1 --concurrency 8 16 24 32 40 48 56 64 72 80 88 96 104 112 120 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 248 256 --evaluation-mode online --measurement-request-count 500 --warmup --performance-tool perf_analyzer --result-path /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/triton_performance_online.csv
+2023-03-04 15:06:10,576 INFO triton_performance_runner Running warmup before the main test
+2023-03-04 15:06:10,576 INFO triton_performance_runner Using Perf Analyzer for performance evaluation
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils Selected configuration
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	server_url = http://127.0.0.1:8000
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	model_name = GPUnet
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	input_data = random
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	input_shapes = []
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	batch_sizes = [1]
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	concurrency = [8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256]
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	measurement_mode = MeasurementMode.COUNT_WINDOWS
+2023-03-04 15:06:10,576 INFO triton.deployment_toolkit.utils 	measurement_interval = 5000
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	measurement_request_count = 500
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	evaluation_mode = EvaluationMode.ONLINE
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	offline_mode = OfflineMode.SYSTEM
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	output_shared_memory_size = 102400
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	result_path = /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/triton_performance_online.csv
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	timeout = None
+2023-03-04 15:06:10,577 INFO triton.deployment_toolkit.utils 	verbose = False
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 1000
+  Latency limit: 0 msec
+  Concurrency limit: 256 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 256
+  Pass [1] throughput: 2933 infer/sec. Avg latency: 83917 usec (std 23955 usec)
+  Pass [2] throughput: 2947 infer/sec. Avg latency: 82665 usec (std 11759 usec)
+  Pass [3] throughput: 2804 infer/sec. Avg latency: 86750 usec (std 13872 usec)
+  Client:
+    Request count: 2804
+    Throughput: 2804 infer/sec
+    Avg latency: 86750 usec (standard deviation 13872 usec)
+    p50 latency: 85178 usec
+    p90 latency: 105713 usec
+    p95 latency: 106880 usec
+    p99 latency: 109629 usec
+    Avg HTTP time: 86935 usec (send 846 usec + response wait 86089 usec + receive 0 usec)
+  Server:
+    Inference count: 2982
+    Execution count: 89
+    Successful request count: 89
+    Avg request latency: 79579 usec (overhead 524 usec + queue 52911 usec + compute input 9097 usec + compute infer 16927 usec + compute output 120 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 256, throughput: 2804 infer/sec, latency 86750 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 8 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 8
+  Client:
+    Request count: 856
+    Throughput: 856 infer/sec
+    Avg latency: 9311 usec (standard deviation 1023 usec)
+    p50 latency: 9244 usec
+    p90 latency: 10743 usec
+    p95 latency: 11483 usec
+    p99 latency: 11811 usec
+    Avg HTTP time: 9307 usec (send/recv 95 usec + response wait 9212 usec)
+  Server:
+    Inference count: 859
+    Execution count: 767
+    Successful request count: 767
+    Avg request latency: 8659 usec (overhead 15 usec + queue 5919 usec + compute input 151 usec + compute infer 2567 usec + compute output 7 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 8, throughput: 856 infer/sec, latency 9311 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 16 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 16
+  Client:
+    Request count: 1235
+    Throughput: 1235 infer/sec
+    Avg latency: 12886 usec (standard deviation 1315 usec)
+    p50 latency: 13581 usec
+    p90 latency: 13839 usec
+    p95 latency: 13897 usec
+    p99 latency: 14043 usec
+    Avg HTTP time: 12883 usec (send/recv 103 usec + response wait 12780 usec)
+  Server:
+    Inference count: 1243
+    Execution count: 585
+    Successful request count: 585
+    Avg request latency: 11470 usec (overhead 30 usec + queue 7174 usec + compute input 433 usec + compute infer 3823 usec + compute output 10 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 16, throughput: 1235 infer/sec, latency 12886 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 24 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 24
+  Client:
+    Request count: 1511
+    Throughput: 1511 infer/sec
+    Avg latency: 15775 usec (standard deviation 2203 usec)
+    p50 latency: 16041 usec
+    p90 latency: 17689 usec
+    p95 latency: 20210 usec
+    p99 latency: 21620 usec
+    Avg HTTP time: 15766 usec (send/recv 107 usec + response wait 15659 usec)
+  Server:
+    Inference count: 1521
+    Execution count: 502
+    Successful request count: 502
+    Avg request latency: 13701 usec (overhead 45 usec + queue 8729 usec + compute input 717 usec + compute infer 4196 usec + compute output 14 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 24, throughput: 1511 infer/sec, latency 15775 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 32 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 32
+  Client:
+    Request count: 1723
+    Throughput: 1723 infer/sec
+    Avg latency: 18508 usec (standard deviation 2987 usec)
+    p50 latency: 18745 usec
+    p90 latency: 21698 usec
+    p95 latency: 22436 usec
+    p99 latency: 25483 usec
+    Avg HTTP time: 18488 usec (send/recv 122 usec + response wait 18366 usec)
+  Server:
+    Inference count: 1729
+    Execution count: 468
+    Successful request count: 468
+    Avg request latency: 15051 usec (overhead 64 usec + queue 9137 usec + compute input 1129 usec + compute infer 4702 usec + compute output 19 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 32, throughput: 1723 infer/sec, latency 18508 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 40 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 40
+  Client:
+    Request count: 1812
+    Throughput: 1810.19 infer/sec
+    Avg latency: 21913 usec (standard deviation 4146 usec)
+    p50 latency: 22726 usec
+    p90 latency: 26727 usec
+    p95 latency: 27868 usec
+    p99 latency: 29565 usec
+    Avg HTTP time: 21905 usec (send/recv 144 usec + response wait 21761 usec)
+  Server:
+    Inference count: 1821
+    Execution count: 432
+    Successful request count: 432
+    Avg request latency: 16948 usec (overhead 82 usec + queue 9986 usec + compute input 1543 usec + compute infer 5314 usec + compute output 23 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 40, throughput: 1810.19 infer/sec, latency 21913 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 48 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 48
+  Client:
+    Request count: 1967
+    Throughput: 1967 infer/sec
+    Avg latency: 24274 usec (standard deviation 5206 usec)
+    p50 latency: 24667 usec
+    p90 latency: 30470 usec
+    p95 latency: 32983 usec
+    p99 latency: 34441 usec
+    Avg HTTP time: 24258 usec (send/recv 152 usec + response wait 24106 usec)
+  Server:
+    Inference count: 2002
+    Execution count: 389
+    Successful request count: 389
+    Avg request latency: 19271 usec (overhead 113 usec + queue 10865 usec + compute input 2253 usec + compute infer 6010 usec + compute output 30 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 48, throughput: 1967 infer/sec, latency 24274 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 56 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 56
+  Client:
+    Request count: 2001
+    Throughput: 2001 infer/sec
+    Avg latency: 27674 usec (standard deviation 6038 usec)
+    p50 latency: 28546 usec
+    p90 latency: 34915 usec
+    p95 latency: 37107 usec
+    p99 latency: 39967 usec
+    Avg HTTP time: 27654 usec (send/recv 157 usec + response wait 27497 usec)
+  Server:
+    Inference count: 2017
+    Execution count: 381
+    Successful request count: 381
+    Avg request latency: 20270 usec (overhead 125 usec + queue 11043 usec + compute input 2592 usec + compute infer 6476 usec + compute output 34 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 56, throughput: 2001 infer/sec, latency 27674 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 64 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 64
+  Client:
+    Request count: 2039
+    Throughput: 2039 infer/sec
+    Avg latency: 30608 usec (standard deviation 6211 usec)
+    p50 latency: 31704 usec
+    p90 latency: 37149 usec
+    p95 latency: 37787 usec
+    p99 latency: 41972 usec
+    Avg HTTP time: 30622 usec (send/recv 170 usec + response wait 30452 usec)
+  Server:
+    Inference count: 2080
+    Execution count: 356
+    Successful request count: 356
+    Avg request latency: 21867 usec (overhead 144 usec + queue 11638 usec + compute input 2984 usec + compute infer 7062 usec + compute output 39 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 64, throughput: 2039 infer/sec, latency 30608 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 72 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 72
+  Client:
+    Request count: 2223
+    Throughput: 2223 infer/sec
+    Avg latency: 31920 usec (standard deviation 6226 usec)
+    p50 latency: 32034 usec
+    p90 latency: 39608 usec
+    p95 latency: 41268 usec
+    p99 latency: 47534 usec
+    Avg HTTP time: 31998 usec (send/recv 170 usec + response wait 31828 usec)
+  Server:
+    Inference count: 2295
+    Execution count: 300
+    Successful request count: 300
+    Avg request latency: 24596 usec (overhead 159 usec + queue 13687 usec + compute input 3175 usec + compute infer 7534 usec + compute output 41 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 72, throughput: 2223 infer/sec, latency 31920 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 80 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 80
+  Client:
+    Request count: 2155
+    Throughput: 2155 infer/sec
+    Avg latency: 35963 usec (standard deviation 9650 usec)
+    p50 latency: 38968 usec
+    p90 latency: 46559 usec
+    p95 latency: 47747 usec
+    p99 latency: 50360 usec
+    Avg HTTP time: 35929 usec (send/recv 157 usec + response wait 35772 usec)
+  Server:
+    Inference count: 2202
+    Execution count: 306
+    Successful request count: 306
+    Avg request latency: 26340 usec (overhead 188 usec + queue 13948 usec + compute input 3884 usec + compute infer 8270 usec + compute output 50 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 80, throughput: 2155 infer/sec, latency 35963 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 88 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 88
+  Client:
+    Request count: 2224
+    Throughput: 2221.78 infer/sec
+    Avg latency: 39118 usec (standard deviation 9235 usec)
+    p50 latency: 41783 usec
+    p90 latency: 47911 usec
+    p95 latency: 49469 usec
+    p99 latency: 52389 usec
+    Avg HTTP time: 39065 usec (send/recv 162 usec + response wait 38903 usec)
+  Server:
+    Inference count: 2265
+    Execution count: 307
+    Successful request count: 307
+    Avg request latency: 28436 usec (overhead 238 usec + queue 13947 usec + compute input 4819 usec + compute infer 9372 usec + compute output 60 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 88, throughput: 2221.78 infer/sec, latency 39118 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 96 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 96
+  Client:
+    Request count: 2393
+    Throughput: 2393 infer/sec
+    Avg latency: 39372 usec (standard deviation 8202 usec)
+    p50 latency: 40880 usec
+    p90 latency: 48722 usec
+    p95 latency: 50541 usec
+    p99 latency: 53430 usec
+    Avg HTTP time: 39477 usec (send/recv 169 usec + response wait 39308 usec)
+  Server:
+    Inference count: 2437
+    Execution count: 256
+    Successful request count: 256
+    Avg request latency: 29337 usec (overhead 178 usec + queue 17264 usec + compute input 3634 usec + compute infer 8214 usec + compute output 47 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 96, throughput: 2393 infer/sec, latency 39372 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 104 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 104
+  Client:
+    Request count: 2308
+    Throughput: 2308 infer/sec
+    Avg latency: 43669 usec (standard deviation 11267 usec)
+    p50 latency: 45715 usec
+    p90 latency: 56759 usec
+    p95 latency: 59531 usec
+    p99 latency: 63566 usec
+    Avg HTTP time: 43648 usec (send/recv 164 usec + response wait 43484 usec)
+  Server:
+    Inference count: 2375
+    Execution count: 260
+    Successful request count: 260
+    Avg request latency: 31152 usec (overhead 228 usec + queue 16908 usec + compute input 4701 usec + compute infer 9257 usec + compute output 58 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 104, throughput: 2308 infer/sec, latency 43669 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 112 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 112
+  Client:
+    Request count: 2403
+    Throughput: 2403 infer/sec
+    Avg latency: 45568 usec (standard deviation 10140 usec)
+    p50 latency: 46952 usec
+    p90 latency: 56237 usec
+    p95 latency: 60400 usec
+    p99 latency: 64735 usec
+    Avg HTTP time: 45565 usec (send/recv 165 usec + response wait 45400 usec)
+  Server:
+    Inference count: 2457
+    Execution count: 234
+    Successful request count: 234
+    Avg request latency: 33772 usec (overhead 258 usec + queue 18426 usec + compute input 5041 usec + compute infer 9984 usec + compute output 63 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 112, throughput: 2403 infer/sec, latency 45568 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 120 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 120
+  Client:
+    Request count: 2458
+    Throughput: 2458 infer/sec
+    Avg latency: 47111 usec (standard deviation 10024 usec)
+    p50 latency: 48725 usec
+    p90 latency: 57516 usec
+    p95 latency: 61099 usec
+    p99 latency: 66521 usec
+    Avg HTTP time: 47146 usec (send/recv 170 usec + response wait 46976 usec)
+  Server:
+    Inference count: 2502
+    Execution count: 220
+    Successful request count: 220
+    Avg request latency: 34987 usec (overhead 248 usec + queue 19842 usec + compute input 4844 usec + compute infer 9990 usec + compute output 63 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 120, throughput: 2458 infer/sec, latency 47111 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 128 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 128
+  Client:
+    Request count: 2509
+    Throughput: 2509 infer/sec
+    Avg latency: 50649 usec (standard deviation 13118 usec)
+    p50 latency: 52404 usec
+    p90 latency: 68783 usec
+    p95 latency: 70303 usec
+    p99 latency: 77074 usec
+    Avg HTTP time: 50684 usec (send/recv 204 usec + response wait 50480 usec)
+  Server:
+    Inference count: 2568
+    Execution count: 220
+    Successful request count: 220
+    Avg request latency: 36247 usec (overhead 262 usec + queue 20110 usec + compute input 5286 usec + compute infer 10523 usec + compute output 66 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 128, throughput: 2509 infer/sec, latency 50649 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 136 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 136
+  Client:
+    Request count: 2325
+    Throughput: 2325 infer/sec
+    Avg latency: 56821 usec (standard deviation 17156 usec)
+    p50 latency: 64388 usec
+    p90 latency: 73114 usec
+    p95 latency: 75260 usec
+    p99 latency: 77531 usec
+    Avg HTTP time: 56901 usec (send/recv 188 usec + response wait 56713 usec)
+  Server:
+    Inference count: 2400
+    Execution count: 245
+    Successful request count: 245
+    Avg request latency: 36570 usec (overhead 374 usec + queue 16288 usec + compute input 7330 usec + compute infer 12489 usec + compute output 89 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 136, throughput: 2325 infer/sec, latency 56821 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 144 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 144
+  Client:
+    Request count: 2446
+    Throughput: 2446 infer/sec
+    Avg latency: 57659 usec (standard deviation 14778 usec)
+    p50 latency: 62135 usec
+    p90 latency: 73397 usec
+    p95 latency: 74509 usec
+    p99 latency: 75514 usec
+    Avg HTTP time: 57470 usec (send/recv 174 usec + response wait 57296 usec)
+  Server:
+    Inference count: 2532
+    Execution count: 213
+    Successful request count: 213
+    Avg request latency: 38935 usec (overhead 347 usec + queue 20198 usec + compute input 6315 usec + compute infer 11993 usec + compute output 82 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 144, throughput: 2446 infer/sec, latency 57659 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 152 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 152
+  Client:
+    Request count: 2563
+    Throughput: 2563 infer/sec
+    Avg latency: 57578 usec (standard deviation 13660 usec)
+    p50 latency: 57993 usec
+    p90 latency: 74930 usec
+    p95 latency: 76125 usec
+    p99 latency: 82244 usec
+    Avg HTTP time: 57437 usec (send/recv 198 usec + response wait 57239 usec)
+  Server:
+    Inference count: 2664
+    Execution count: 173
+    Successful request count: 173
+    Avg request latency: 43364 usec (overhead 357 usec + queue 24100 usec + compute input 6484 usec + compute infer 12340 usec + compute output 83 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 152, throughput: 2563 infer/sec, latency 57578 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 160 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 160
+  Client:
+    Request count: 2650
+    Throughput: 2650 infer/sec
+    Avg latency: 59536 usec (standard deviation 11651 usec)
+    p50 latency: 60090 usec
+    p90 latency: 75803 usec
+    p95 latency: 77760 usec
+    p99 latency: 85430 usec
+    Avg HTTP time: 59508 usec (send/recv 291 usec + response wait 59217 usec)
+  Server:
+    Inference count: 2741
+    Execution count: 172
+    Successful request count: 172
+    Avg request latency: 46295 usec (overhead 385 usec + queue 25611 usec + compute input 7218 usec + compute infer 12991 usec + compute output 90 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 160, throughput: 2650 infer/sec, latency 59536 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 168 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 168
+  Client:
+    Request count: 2507
+    Throughput: 2504.5 infer/sec
+    Avg latency: 64654 usec (standard deviation 16723 usec)
+    p50 latency: 71675 usec
+    p90 latency: 82079 usec
+    p95 latency: 82478 usec
+    p99 latency: 87230 usec
+    Avg HTTP time: 64692 usec (send/recv 204 usec + response wait 64488 usec)
+  Server:
+    Inference count: 2596
+    Execution count: 184
+    Successful request count: 184
+    Avg request latency: 43333 usec (overhead 418 usec + queue 21743 usec + compute input 7740 usec + compute infer 13335 usec + compute output 97 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 168, throughput: 2504.5 infer/sec, latency 64654 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 176 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 176
+  Client:
+    Request count: 2556
+    Throughput: 2556 infer/sec
+    Avg latency: 66679 usec (standard deviation 14748 usec)
+    p50 latency: 67147 usec
+    p90 latency: 84276 usec
+    p95 latency: 85245 usec
+    p99 latency: 90324 usec
+    Avg HTTP time: 66451 usec (send/recv 274 usec + response wait 66177 usec)
+  Server:
+    Inference count: 2627
+    Execution count: 158
+    Successful request count: 158
+    Avg request latency: 47473 usec (overhead 464 usec + queue 22979 usec + compute input 8595 usec + compute infer 15329 usec + compute output 106 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 176, throughput: 2556 infer/sec, latency 66679 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 184 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 184
+  Client:
+    Request count: 2634
+    Throughput: 2634 infer/sec
+    Avg latency: 67348 usec (standard deviation 13049 usec)
+    p50 latency: 65427 usec
+    p90 latency: 84658 usec
+    p95 latency: 90467 usec
+    p99 latency: 95281 usec
+    Avg HTTP time: 67339 usec (send/recv 375 usec + response wait 66964 usec)
+  Server:
+    Inference count: 2714
+    Execution count: 132
+    Successful request count: 132
+    Avg request latency: 55324 usec (overhead 414 usec + queue 31989 usec + compute input 7995 usec + compute infer 14826 usec + compute output 100 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 184, throughput: 2634 infer/sec, latency 67348 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 192 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 192
+  Client:
+    Request count: 2744
+    Throughput: 2744 infer/sec
+    Avg latency: 67642 usec (standard deviation 11270 usec)
+    p50 latency: 69312 usec
+    p90 latency: 80199 usec
+    p95 latency: 83716 usec
+    p99 latency: 87256 usec
+    Avg HTTP time: 67517 usec (send/recv 455 usec + response wait 67062 usec)
+  Server:
+    Inference count: 2819
+    Execution count: 126
+    Successful request count: 126
+    Avg request latency: 57050 usec (overhead 428 usec + queue 34619 usec + compute input 7701 usec + compute infer 14203 usec + compute output 99 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 192, throughput: 2744 infer/sec, latency 67642 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 200 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 200
+  Client:
+    Request count: 2752
+    Throughput: 2752 infer/sec
+    Avg latency: 69004 usec (standard deviation 10811 usec)
+    p50 latency: 69206 usec
+    p90 latency: 82054 usec
+    p95 latency: 83352 usec
+    p99 latency: 95242 usec
+    Avg HTTP time: 69382 usec (send/recv 451 usec + response wait 68931 usec)
+  Server:
+    Inference count: 2873
+    Execution count: 127
+    Successful request count: 127
+    Avg request latency: 57272 usec (overhead 447 usec + queue 34126 usec + compute input 7757 usec + compute infer 14840 usec + compute output 102 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 200, throughput: 2752 infer/sec, latency 69004 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 208 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 208
+  Client:
+    Request count: 2683
+    Throughput: 2683 infer/sec
+    Avg latency: 75370 usec (standard deviation 14650 usec)
+    p50 latency: 79790 usec
+    p90 latency: 90575 usec
+    p95 latency: 93279 usec
+    p99 latency: 103755 usec
+    Avg HTTP time: 75188 usec (send/recv 341 usec + response wait 74847 usec)
+  Server:
+    Inference count: 2807
+    Execution count: 135
+    Successful request count: 135
+    Avg request latency: 56302 usec (overhead 472 usec + queue 31370 usec + compute input 8854 usec + compute infer 15492 usec + compute output 114 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 208, throughput: 2683 infer/sec, latency 75370 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 216 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 216
+  Client:
+    Request count: 2818
+    Throughput: 2818 infer/sec
+    Avg latency: 74348 usec (standard deviation 12432 usec)
+    p50 latency: 77082 usec
+    p90 latency: 86699 usec
+    p95 latency: 92417 usec
+    p99 latency: 103029 usec
+    Avg HTTP time: 73891 usec (send/recv 517 usec + response wait 73374 usec)
+  Server:
+    Inference count: 2928
+    Execution count: 125
+    Successful request count: 125
+    Avg request latency: 59797 usec (overhead 481 usec + queue 36060 usec + compute input 8371 usec + compute infer 14777 usec + compute output 108 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 216, throughput: 2818 infer/sec, latency 74348 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 224 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 224
+  Client:
+    Request count: 2882
+    Throughput: 2882 infer/sec
+    Avg latency: 76035 usec (standard deviation 11299 usec)
+    p50 latency: 76298 usec
+    p90 latency: 88876 usec
+    p95 latency: 94514 usec
+    p99 latency: 98723 usec
+    Avg HTTP time: 75908 usec (send/recv 541 usec + response wait 75367 usec)
+  Server:
+    Inference count: 2994
+    Execution count: 109
+    Successful request count: 109
+    Avg request latency: 64594 usec (overhead 446 usec + queue 40982 usec + compute input 7892 usec + compute infer 15168 usec + compute output 106 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 224, throughput: 2882 infer/sec, latency 76035 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 232 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 232
+  Client:
+    Request count: 2679
+    Throughput: 2679 infer/sec
+    Avg latency: 81457 usec (standard deviation 16156 usec)
+    p50 latency: 85841 usec
+    p90 latency: 100298 usec
+    p95 latency: 104037 usec
+    p99 latency: 107608 usec
+    Avg HTTP time: 81691 usec (send/recv 461 usec + response wait 81230 usec)
+  Server:
+    Inference count: 2824
+    Execution count: 122
+    Successful request count: 122
+    Avg request latency: 58813 usec (overhead 511 usec + queue 32270 usec + compute input 8888 usec + compute infer 17015 usec + compute output 129 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 232, throughput: 2679 infer/sec, latency 81457 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 240 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 240
+  Client:
+    Request count: 2809
+    Throughput: 2809 infer/sec
+    Avg latency: 81547 usec (standard deviation 12397 usec)
+    p50 latency: 82181 usec
+    p90 latency: 96241 usec
+    p95 latency: 100029 usec
+    p99 latency: 108693 usec
+    Avg HTTP time: 81626 usec (send/recv 587 usec + response wait 81039 usec)
+  Server:
+    Inference count: 2940
+    Execution count: 112
+    Successful request count: 112
+    Avg request latency: 65771 usec (overhead 488 usec + queue 39503 usec + compute input 8947 usec + compute infer 16717 usec + compute output 116 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 240, throughput: 2809 infer/sec, latency 81547 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 248 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 248
+  Client:
+    Request count: 2878
+    Throughput: 2878 infer/sec
+    Avg latency: 83100 usec (standard deviation 13589 usec)
+    p50 latency: 82556 usec
+    p90 latency: 100695 usec
+    p95 latency: 105402 usec
+    p99 latency: 116994 usec
+    Avg HTTP time: 83144 usec (send/recv 657 usec + response wait 82487 usec)
+  Server:
+    Inference count: 2971
+    Execution count: 100
+    Successful request count: 100
+    Avg request latency: 70318 usec (overhead 517 usec + queue 44859 usec + compute input 8617 usec + compute infer 16211 usec + compute output 114 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 248, throughput: 2878 infer/sec, latency 83100 usec
+*** Measurement Settings ***
+  Batch size: 1
+  Using "count_windows" mode for stabilization
+  Minimum number of samples in each window: 500
+  Latency limit: 0 msec
+  Concurrency limit: 256 concurrent requests
+  Using synchronous calls for inference
+  Stabilizing using average latency
+
+Request concurrency: 256
+  Client:
+    Request count: 2669
+    Throughput: 2669 infer/sec
+    Avg latency: 90360 usec (standard deviation 16184 usec)
+    p50 latency: 92053 usec
+    p90 latency: 111152 usec
+    p95 latency: 113285 usec
+    p99 latency: 129525 usec
+    Avg HTTP time: 91156 usec (send/recv 691 usec + response wait 90465 usec)
+  Server:
+    Inference count: 2805
+    Execution count: 90
+    Successful request count: 90
+    Avg request latency: 76500 usec (overhead 582 usec + queue 48469 usec + compute input 10394 usec + compute infer 16922 usec + compute output 133 usec)
+
+Inferences/Second vs. Client Average Batch Latency
+Concurrency: 256, throughput: 2669 infer/sec, latency 90360 usec
+  Batch    Concurrency    Inferences/Second    Client Send    Network+Server Send/Recv    Server Queue    Server Compute Input    Server Compute Infer    Server Compute Output    Client Recv    p50 latency    p90 latency    p95 latency    p99 latency    avg latency
+-------  -------------  -------------------  -------------  --------------------------  --------------  ----------------------  ----------------------  -----------------------  -------------  -------------  -------------  -------------  -------------  -------------
+      1              8               856                95                         570            5919                     151                    2567                        7              0           9244          10743          11483          11811           9309
+      1             16              1235               103                        1341            7174                     433                    3823                       10              0          13581          13839          13897          14043          12884
+      1             24              1511               107                        2010            8729                     717                    4196                       14              0          16041          17689          20210          21620          15773
+      1             32              1723               122                        3397            9137                    1129                    4702                       19              0          18745          21698          22436          25483          18506
+      1             40              1810.19            144                        4900            9986                    1543                    5314                       23              0          22726          26727          27868          29565          21910
+      1             48              1967               152                        4960           10865                    2253                    6010                       30              0          24667          30470          32983          34441          24270
+      1             56              2001               157                        7369           11043                    2592                    6476                       34              0          28546          34915          37107          39967          27671
+      1             64              2039               170                        8712           11638                    2984                    7062                       39              0          31704          37149          37787          41972          30605
+      1             72              2223               170                        7311           13687                    3175                    7534                       41              0          32034          39608          41268          47534          31918
+      1             80              2155               157                        9650           13948                    3884                    8270                       50              0          38968          46559          47747          50360          35959
+      1             88              2221.78            162                       10756           13947                    4819                    9372                       60              0          41783          47911          49469          52389          39116
+      1             96              2393               169                       10041           17264                    3634                    8214                       47              0          40880          48722          50541          53430          39369
+      1            104              2308               164                       12578           16908                    4701                    9257                       58              0          45715          56759          59531          63566          43666
+      1            112              2403               165                       11886           18426                    5041                    9984                       63              0          46952          56237          60400          64735          45565
+      1            120              2458               170                       12199           19842                    4844                    9990                       63              0          48725          57516          61099          66521          47108
+      1            128              2509               204                       14457           20110                    5286                   10523                       66              0          52404          68783          70303          77074          50646
+      1            136              2325               188                       20434           16288                    7330                   12489                       89              0          64388          73114          75260          77531          56818
+      1            144              2446               174                       18894           20198                    6315                   11993                       82              0          62135          73397          74509          75514          57656
+      1            152              2563               198                       14372           24100                    6484                   12340                       83              0          57993          74930          76125          82244          57577
+      1            160              2650               291                       13332           25611                    7218                   12991                       90              0          60090          75803          77760          85430          59533
+      1            168              2504.5             204                       21532           21743                    7740                   13335                       97              0          71675          82079          82478          87230          64651
+      1            176              2556               274                       19394           22979                    8595                   15329                      106              0          67147          84276          85245          90324          66677
+      1            184              2634               375                       12061           31989                    7995                   14826                      100              0          65427          84658          90467          95281          67346
+      1            192              2744               455                       10562           34619                    7701                   14203                       99              0          69312          80199          83716          87256          67639
+      1            200              2752               451                       11725           34126                    7757                   14840                      102              0          69206          82054          83352          95242          69001
+      1            208              2683               341                       19196           31370                    8854                   15492                      114              0          79790          90575          93279         103755          75367
+      1            216              2818               517                       14512           36060                    8371                   14777                      108              0          77082          86699          92417         103029          74345
+      1            224              2882               541                       11343           40982                    7892                   15168                      106              0          76298          88876          94514          98723          76032
+      1            232              2679               461                       22692           32270                    8888                   17015                      129              0          85841         100298         104037         107608          81455
+      1            240              2809               587                       15674           39503                    8947                   16717                      116              0          82181          96241         100029         108693          81544
+      1            248              2878               657                       12639           44859                    8617                   16211                      114              0          82556         100695         105402         116994          83097
+      1            256              2669               691                       13748           48469                   10394                   16922                      133              0          92053         111152         113285         129525          90357
+2023-03-04 15:07:53,421 INFO runner Saving triton_performance_online to /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results/experiment_1
+2023-03-04 15:07:53,421 INFO runner Done
+2023-03-04 15:07:53,421 INFO runner [32m[Experiment: 1/1] ================ Stage Triton Performance Online Finished ================[39m
+2023-03-04 15:07:53,425 INFO runner Stopping triton server triton-server.
+2023-03-04 15:07:53,937 INFO runner Saving Triton Inference Server triton-server logs in /var/logs/triton-server-experiment-1.log.
+2023-03-04 15:07:54,044 INFO runner [36m================ Experiment: 1/1 Finished ================[39m
+2023-03-04 15:07:54,047 INFO runner Summary for triton_performance_offline stored in /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results/triton_performance_offline_summary.csv
+2023-03-04 15:07:54,054 INFO runner Summary for triton_performance_online stored in /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results/triton_performance_online_summary.csv
+2023-03-04 15:07:54,060 INFO runner Task details and results stored in /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/results

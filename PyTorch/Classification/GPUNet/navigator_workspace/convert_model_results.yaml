@@ -1,0 +1,46 @@
+- comparator_config: null
+  conversion_config:
+    onnx_opset: 13
+    target_format: onnx
+    tensorrt_explicit_precision: false
+    tensorrt_precision: null
+    tensorrt_precision_mode: hierarchy
+    tensorrt_sparse_weights: false
+    tensorrt_strict_types: false
+  dataset_profile: null
+  framework_docker_image: null
+  model_signature_config: null
+  output_model:
+    format: onnx
+    name: GPUnet
+    num_required_gpus: null
+    path: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+    properties:
+      onnx_opset: 13
+    signature:
+      inputs:
+        INPUT__0:
+          dtype: float16
+          name: INPUT__0
+          shape:
+          - -1
+          - 3
+          - 384
+          - 384
+      outputs:
+        OUTPUT__0:
+          dtype: float16
+          name: OUTPUT__0
+          shape:
+          - -1
+          - 1000
+  source_model_config:
+    model_format: null
+    model_name: GPUnet
+    model_path: /home/cc/DLEx/PyTorch/Classification/GPUNet/runner_workspace/executor/shared/exported_model.onnx
+    model_version: '1'
+  status:
+    log_path: null
+    message: Source model
+    state: succeeded
+  tensorrt_common_config: null
